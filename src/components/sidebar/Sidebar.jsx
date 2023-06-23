@@ -42,32 +42,44 @@ const Sidebar = () => {
                             <span>Pintas de Sangre</span>
                         </li>
                     </Link>
+                    <Link to="/bancos" className="link">
+                        <li>
+                            <WaterDamageIcon />
+                            <span>Bancos de Sangre</span>
+                        </li>
+                    </Link>
                     
-                    <li>
-                        <WaterDamageIcon />
-                        <span>Bancos de Sangre</span>
-                    </li>
-                    <li>
-                        <EventNoteIcon />
-                        <span>Citas</span>
-                    </li>
-                    <li>
-                        <PersonIcon />
-                        <span>Compradores</span>
-                    </li>
+                    <Link to="/citas" className="link">
+                        <li>
+                            <EventNoteIcon />
+                            <span>Citas</span>
+                        </li>
+                    </Link>
+                    <Link to="/compradores" className="link">
+                        <li>
+                            <PersonIcon />
+                            <span>Compradores</span>
+                        </li>
+                    </Link>
+                    
                     <p className="tittle">USUARIO</p>
+
                     <li>
                         <SettingsIcon />
                         <span>Ajustes</span>
                     </li>
-                    <li>
+
+                    {/* <li>
                         <PortraitIcon />
                         <span>Perfil</span>
-                    </li>
+                    </li> */}
+                    <Link to="/login" className="link">
                     <li>
                         <LogoutIcon />
                         <span>Logout</span>
                     </li>
+                    </Link>
+
                 </ul>
             </div>
             {/* <div className="bottom">

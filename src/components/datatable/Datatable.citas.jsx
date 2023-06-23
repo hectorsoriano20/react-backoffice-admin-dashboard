@@ -1,22 +1,21 @@
 import "./datatable.scss"
 import { DataGrid } from '@mui/x-data-grid';
 import { Link } from "react-router-dom"
-import { pintaColumns } from "../../datatablesource";
+import { citaColumns } from "../../datatablesource";
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 
-const DatatablePintas = () => {
+const DatatableCitas = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta')
+            const result = await axios('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita')
             const transformedData = result.data.body.map(persona => ({
-                id: persona.ID_Pinta,
-                nombre: persona.Nombre_Apellido_Pinta,
-                email: persona.Correo_Pinta,
-                tipo: persona.Tipo_Pinta,
-                fecha: persona.FechaDonacion_Pinta ? persona.FechaDonacion_Pinta.split("T")[0] : '',
+                id: persona.ID_Cita,
+                email: persona.Correo,
+                fecha: persona.Fecha_Cita ? persona.Fecha_Cita.split("T")[0] : '',
+                hora: persona.Hora_Cita,
             }))
             setData(transformedData)
         }
@@ -26,7 +25,7 @@ const DatatablePintas = () => {
     const handleDelete = async (id) => {
         if (window.confirm('¿Estás seguro de que quieres eliminar este registro?')) {
             try {
-                await axios.delete(`https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta/DEL/${id}`);
+                await axios.delete(`https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita/DEL/${id}`);
                 setData(data.filter((item)=> item.id !== id));
             } catch (error) {
                 console.error("Error deleting data: ", error);
@@ -37,7 +36,7 @@ const DatatablePintas = () => {
     const actionColumn = [{field: "action", headerName: "Acción", width: 200, renderCell:(params)=>{
         return (
             <div className="cellAction">
-                <Link to={`/pintas/${params.row.id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/citas/${params.row.id}`} style={{ textDecoration: "none" }}>
                   <div className="viewButton">Ver Más</div>
                 </Link>
                 
@@ -49,14 +48,14 @@ const DatatablePintas = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Pintas
-              <Link to="/pintas/new" className="link">
-                Agregar Nueva Pinta
+              Lista de Citas
+              <Link to="/citas/new" className="link">
+                Agregar Nueva Cita
               </Link>
             </div>
             <DataGrid
                 rows={data}
-                columns={pintaColumns.concat(actionColumn)}
+                columns={citaColumns.concat(actionColumn)}
                 initialState={{
                     pagination: {
                      paginationModel: { page: 0, pageSize: 10 },
@@ -69,4 +68,4 @@ const DatatablePintas = () => {
     )
 }
 
-export default DatatablePintas
+export default DatatableCitas

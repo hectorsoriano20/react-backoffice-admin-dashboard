@@ -2,19 +2,31 @@ import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import UserList from "./pages/list/List.users";
 import PintasList from "./pages/list/List.pintas";
+import BancosList from "./pages/list/List.bancos";
+import CitasList from "./pages/list/List.citas";
+import CompradoresList from "./pages/list/List.compradores";
 import SingleUsers from "./pages/single/Single.users";
 import SinglePintas from "./pages/single/Single.pintas";
-import New from "./pages/new/New";
+import SingleBancos from "./pages/single/Single.bancos";
+import SingleCitas from "./pages/single/Single.citas";
+import SingleCompradores from "./pages/single/Single.compradores";
+import NewPintas from "./pages/new/New.pintas";
 import NewUsers from "./pages/new/New.users";
+import NewBancos from "./pages/new/New.bancos";
+import NewCitas from "./pages/new/New.citas";
+import NewCompradores from "./pages/new/New.compradores";
 import EditPintas from "./pages/edit/edit.pintas";
 import EditUsers from "./pages/edit/edit.users";
+import EditBancos from "./pages/edit/edit.bancos";
+import EditaCitas from "./pages/edit/edit.citas";
+import EditCompradores from "./pages/edit/edit.compradores";
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate
 } from "react-router-dom";
-import { userInputs, pintasInputs, userInputsSend } from "./formSource.js";
+import { userInputs, pintasInputs, userInputsSend, bancosInputs, citasInputs, compradoresInputs } from "./formSource.js";
 import { useContext } from "react";
 import { AuthContext } from "./context/AuthContext";
 
@@ -45,8 +57,26 @@ function App() {
             <Route path="pintas">
               <Route index element={<RequireAuth><PintasList/></RequireAuth>}/>
               <Route path=":id" element={<RequireAuth><SinglePintas/></RequireAuth>}/>
-              <Route path='new' element={<RequireAuth><New inputs = {pintasInputs} title="Agregar Nueva Pinta "/></RequireAuth>}/>
+              <Route path='new' element={<RequireAuth><NewPintas inputs = {pintasInputs} title="Agregar Nueva Pinta"/></RequireAuth>}/>
               <Route path='edit/:id' element={<RequireAuth><EditPintas inputs = {pintasInputs} title="Editar Pinta "/></RequireAuth>}/>
+            </Route>
+            <Route path="bancos">
+              <Route index element={<RequireAuth><BancosList/></RequireAuth>}/>
+              <Route path=":id" element={<RequireAuth><SingleBancos/></RequireAuth>}/>
+              <Route path='new' element={<RequireAuth><NewBancos inputs = {bancosInputs} title="Agregar Nuevo Banco"/></RequireAuth>}/>
+              <Route path='edit/:id' element={<RequireAuth><EditBancos inputs = {bancosInputs} title="Editar Pinta "/></RequireAuth>}/>
+            </Route>
+            <Route path="citas">
+              <Route index element={<RequireAuth><CitasList/></RequireAuth>}/>
+              <Route path=":id" element={<RequireAuth><SingleCitas/></RequireAuth>}/>
+              <Route path='new' element={<RequireAuth><NewCitas inputs = {citasInputs} title="Agregar Nueva Cita"/></RequireAuth>}/>
+              <Route path='edit/:id' element={<RequireAuth><EditaCitas inputs = {citasInputs} title="Editar Cita "/></RequireAuth>}/>
+            </Route>
+            <Route path="compradores">
+              <Route index element={<RequireAuth><CompradoresList/></RequireAuth>}/>
+              <Route path=":id" element={<RequireAuth><SingleCompradores/></RequireAuth>}/>
+              <Route path='new' element={<RequireAuth><NewCompradores inputs = {compradoresInputs} title="Agregar Nueva Solicitud de Compra"/></RequireAuth>}/>
+              <Route path='edit/:id' element={<RequireAuth><EditCompradores inputs = {compradoresInputs} title="Editar Solicitud de Compra "/></RequireAuth>}/>
             </Route>
           </Route>
         </Routes>

@@ -6,13 +6,37 @@ export const userColumns = [
   { field: 'numero', headerName: 'Número Telefónico', width: 170 },
   { field: 'edad', headerName: 'Edad', width: 70 },
   { field: 'tipo', headerName: 'Tipo', width: 70 },
-  { field: 'estado', headerName: 'Estado', width: 70 },
+  { field: 'estado', headerName: 'Estado', width: 90 },
 ]
 
 export const pintaColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'nombre', headerName: 'Nombre', width: 250 },
+  { field: 'nombre', headerName: 'Nombre Completo', width: 250 },
   { field: 'email', headerName: 'Correo Electrónico', width: 200 },
   { field: 'tipo', headerName: 'Tipo', width: 70 },
   { field: 'fecha', headerName: 'Fecha Donación', width: 170 },
+]
+
+export const bancoColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'nombre', headerName: 'Nombre del Banco', width: 400 },
+  { field: 'direccion', headerName: 'Direccion del Banco', width: 500 },
+]
+
+export const citaColumns = [
+  { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'email', headerName: 'Correo Electrónico', width: 200 },
+  { field: 'fecha', headerName: 'Fecha de Cita Solicitada', width: 200 },
+  { field: 'hora', headerName: 'Hora de Cita Solicitada', width: 200 },
+]
+
+export const compradoresColumns = [
+  { field: 'id', headerName: 'ID', width: 50 },
+  { field: 'nombre', headerName: 'Nombre Comprador', width: 200 },
+  { field: 'email', headerName: 'Correo Electrónico', width: 230 },
+  { field: 'telefono', headerName: 'Teléfono', width: 150 },
+  { field: 'sangrecompra', headerName: 'Compra de Sangre', width: 150 },
+  { field: 'donante', headerName: 'Nombre del donante', width: 200 },
+  { field: 'sangredonacion', headerName: 'Donacion de Sangre', width: 150 },
+  { field: 'edad', headerName: 'Edad del donante', width: 140 },
 ]
