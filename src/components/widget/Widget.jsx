@@ -47,6 +47,16 @@ const Widget = ( {type} ) => {
         }
     }, [type]);
 
+    useEffect(() => {
+        if(type === "cita"){
+            const fetchData = async () => {
+                const result = await axios('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita');
+                setAmount(result.data.body.length);
+            }
+            fetchData();
+        }
+    }, [type]);
+
     const diff = 20 // Temporal
 
     switch(type){
@@ -54,7 +64,6 @@ const Widget = ( {type} ) => {
             data={
                 title: "TOTAL DE USUARIOS",
                 isMoney: false,
-                link: "Mostrar todos los usuarios",
                 icon: <PeopleAltIcon className="icon"/>,
             };
             break;
@@ -62,7 +71,6 @@ const Widget = ( {type} ) => {
             data={
                 title: "PINTAS DE SANGRE",
                 isMoney: false,
-                link: "Mostrar pintas disponibles",
                 icon: <BloodtypeIcon className="icon"/>,
             };
             break;    
@@ -70,7 +78,6 @@ const Widget = ( {type} ) => {
             data={
                 title: "CITAS",
                 isMoney: false,
-                link: "Mostrar todas las citas",
                 icon: <EventNoteIcon className="icon"/>,
             };
             break;        
@@ -78,7 +85,6 @@ const Widget = ( {type} ) => {
             data={
                 title: "COMPRADORES",
                 isMoney: false,
-                link: "Mostrar todos los compradores",
                 icon: <PersonOutlineOutlinedIcon className="icon"/>,
             };
             break;    
@@ -89,10 +95,12 @@ const Widget = ( {type} ) => {
     return (
         <div className="widget">
             <div className="left">
-                <span className="title">{data.title}</span>
-                <span className="counter">
-                    {data.isMoney && "$"}{amount}
-                </span>
+                <div className="title-counter">
+                    <span className="title">{data.title}</span>
+                    <span className="counter">
+                        {data.isMoney && "$"}{amount}
+                    </span>
+                </div>
                 <span className="link">{data.link}</span>
             </div>
             <div className="right">

@@ -1,29 +1,56 @@
-import "./new.scss"
+import "./edit.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
-const New = ({inputs, title}) => {
-    const [file, setFile] = useState("");
+const EditPintas = ({inputs, title}) => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const [file, setFile] = useState(null);
     const [formData, setFormData] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     }
 
+    useEffect(() => {
+        const fetchPinta = async () => {
+            try {
+                const response = await axios.get(`https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta/${id}`);
+                setFormData(response.data.body);
+                setIsLoading(false);
+            } catch (err) {
+                console.log(err);
+                alert('Hubo un error al cargar la pinta. Por favor, inténtalo de nuevo.');
+            }
+        }
+
+        if (id) {
+            fetchPinta();
+        }
+    }, [id]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsLoading(true);
         try {
-            const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta/POST", formData);
+            const response = await axios.put(`https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta/PUT/${id}`, formData);
             console.log(response.data);
-            alert('Pinta agregada correctamente'); // Mensaje de éxito
-            window.location.reload(); // Refrescar la página
+            alert('Pinta editada correctamente'); 
+            navigate(`/pintas/${id}`);
         } catch (err) {
             console.log(err);
-            alert('Hubo un error al agregar la pinta. Por favor, inténtalo de nuevo.'); // Mensaje de error
+            setIsLoading(false);
+            alert('Hubo un error al editar la pinta. Por favor, inténtalo de nuevo.');
         }
+    }
+
+    if (isLoading) {
+        return <div>Loading...</div>;
     }
 
     return (
@@ -63,6 +90,7 @@ const New = ({inputs, title}) => {
                                             type={input.type} 
                                             placeholder={input.placeholder} 
                                             name={input.name}
+                                            value={formData[input.name] || ''}
                                             onChange={handleChange}
                                         />
                                     )}
@@ -78,4 +106,4 @@ const New = ({inputs, title}) => {
     )
 }
 
-export default New
+export default EditPintas

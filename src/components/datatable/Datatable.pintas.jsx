@@ -16,7 +16,7 @@ const DatatablePintas = () => {
                 nombre: persona.Nombre_Apellido_Pinta,
                 email: persona.Correo_Pinta,
                 tipo: persona.Tipo_Pinta,
-                fecha: persona.FechaDonacion_Pinta,
+                fecha: persona.FechaDonacion_Pinta ? persona.FechaDonacion_Pinta.split("T")[0] : '',
             }))
             setData(transformedData)
         }
@@ -37,7 +37,7 @@ const DatatablePintas = () => {
     const actionColumn = [{field: "action", headerName: "Acción", width: 200, renderCell:(params)=>{
         return (
             <div className="cellAction">
-                <Link to={`/users/${params.row.id}`} style={{ textDecoration: "none" }}>
+                <Link to={`/pintas/${params.row.id}`} style={{ textDecoration: "none" }}>
                   <div className="viewButton">Ver Más</div>
                 </Link>
                 
@@ -50,8 +50,8 @@ const DatatablePintas = () => {
         <div className="datatable">
             <div className="datatableTitle">
               Lista de Pintas
-              <Link to="/users/new" className="link">
-                Crear Nuevo
+              <Link to="/pintas/new" className="link">
+                Agregar Nueva Pinta
               </Link>
             </div>
             <DataGrid

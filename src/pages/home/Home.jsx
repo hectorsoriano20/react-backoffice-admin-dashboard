@@ -23,7 +23,8 @@ const Home = () => {
                     <Chart title="Total Pintas Donadas"/>
                 </div>
                 <div className="listContainer">
-                    <div className="listTitle">Solicitudes de Compra de Sangre más recientes</div>
+                    
+                    <div className="listTitle">Donación más reciente</div>
                     <List/>
                 </div>
             </div>

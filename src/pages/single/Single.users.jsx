@@ -5,8 +5,9 @@ import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Single = () => {
+const SingleUsers = () => {
     const { id } = useParams();
     const [userData, setUserData] = useState({});
 
@@ -23,6 +24,8 @@ const Single = () => {
                         email: persona.Correo_Persona,
                         numero: persona.Numero_Persona,
                         edad: persona.Edad_Persona,
+                        tipo: persona.Tipo_Sangre_Persona,
+                        estado: persona.Estado_Persona,
                     };
                     setUserData(userData);
                 }
@@ -42,7 +45,11 @@ const Single = () => {
                 <Navbar />
                 <div className="top">
                     <div className="left">
-                        <div className="editButton">Editar</div>
+                        <div className="editButton">
+                            <Link to={`/users/edit/${userData.id}`} className="link">
+                                Editar
+                            </Link>
+                        </div>
                         <h1 className="title">Información</h1>
                         <div className="item">
                             <img
@@ -52,7 +59,10 @@ const Single = () => {
                             />
                             <div className="details">
                                 <h1 className="itemTitle">
-                                    {userData.nombre} {userData.apellido}
+                                    {userData.nombre}
+                                </h1>
+                                <h1 className="itemTitle2">
+                                    {userData.apellido}
                                 </h1>
                                 <div className="detailItem">
                                     <span className="itemKey">Email:</span>
@@ -66,6 +76,14 @@ const Single = () => {
                                     <span className="itemKey">Edad:</span>
                                     <span className="itemValue">{userData.edad}</span>
                                 </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Tipo de Sangre:</span>
+                                    <span className="itemValue">{userData.tipo}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Estado:</span>
+                                    <span className="itemValue">{userData.estado}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,4 +96,4 @@ const Single = () => {
     );
 };
 
-export default Single;
+export default SingleUsers;

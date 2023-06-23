@@ -18,6 +18,8 @@ const DatatableUsers = () => {
                 email: persona.Correo_Persona,
                 numero: persona.Numero_Persona,
                 edad: persona.Edad_Persona,
+                tipo: persona.Tipo_Sangre_Persona,
+                estado: persona.Estado_Persona,
             }))
             setData(transformedData)
         }
@@ -52,7 +54,7 @@ const DatatableUsers = () => {
             <div className="datatableTitle">
               Lista de Usuarios
               <Link to="/users/new" className="link">
-                Crear Nuevo
+                Crear Nuevo Usuario
               </Link>
             </div>
             <DataGrid

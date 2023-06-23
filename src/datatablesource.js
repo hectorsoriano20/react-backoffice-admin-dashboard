@@ -5,6 +5,8 @@ export const userColumns = [
   { field: 'email', headerName: 'Correo Electrónico', width: 250 },
   { field: 'numero', headerName: 'Número Telefónico', width: 170 },
   { field: 'edad', headerName: 'Edad', width: 70 },
+  { field: 'tipo', headerName: 'Tipo', width: 70 },
+  { field: 'estado', headerName: 'Estado', width: 70 },
 ]
 
 export const pintaColumns = [

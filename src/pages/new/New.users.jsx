@@ -5,7 +5,7 @@ import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUpload
 import { useState } from "react";
 import axios from "axios";
 
-const New = ({inputs, title}) => {
+const NewUsers = ({inputs, title}) => {
     const [file, setFile] = useState("");
     const [formData, setFormData] = useState({});
 
@@ -16,13 +16,13 @@ const New = ({inputs, title}) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta/POST", formData);
+            const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Persona/POST", formData);
             console.log(response.data);
-            alert('Pinta agregada correctamente'); // Mensaje de éxito
+            alert('Persona agregada correctamente'); // Mensaje de éxito
             window.location.reload(); // Refrescar la página
         } catch (err) {
             console.log(err);
-            alert('Hubo un error al agregar la pinta. Por favor, inténtalo de nuevo.'); // Mensaje de error
+            alert('Hubo un error al agregar la persona. Por favor, inténtalo de nuevo.'); // Mensaje de error
         }
     }
 
@@ -78,4 +78,4 @@ const New = ({inputs, title}) => {
     )
 }
 
-export default New
+export default NewUsers
