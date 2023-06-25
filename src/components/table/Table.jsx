@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 
 const List = () => {
-    const [recentDonation, setRecentDonation] = useState(null);
+    const [recentDonations, setRecentDonations] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -19,14 +19,13 @@ const List = () => {
                 const response = await axios.get('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta');
                 const pintas = response.data.body;
 
-                let recentDonation = pintas[0];
-                pintas.forEach(pinta => {
-                    if (format(parseISO(pinta.FechaDonacion_Pinta), 'T') > format(parseISO(recentDonation.FechaDonacion_Pinta), 'T')) {
-                        recentDonation = pinta;
-                    }
+                pintas.sort((a, b) => {
+                    return new Date(b.FechaDonacion_Pinta) - new Date(a.FechaDonacion_Pinta);
                 });
 
-                setRecentDonation(recentDonation);
+                const lastDonations = pintas.slice(0, 5);
+
+                setRecentDonations(lastDonations);
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
@@ -35,7 +34,7 @@ const List = () => {
         fetchData();
     }, []);
 
-    if (!recentDonation) {
+    if (!recentDonations) {
         return <div>Loading...</div>;
     }
 
@@ -52,13 +51,15 @@ const List = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow key={recentDonation.ID_Pinta}>
-                        <TableCell className="tableCell">{recentDonation.ID_Pinta}</TableCell>
-                        <TableCell className="tableCell">{recentDonation.Nombre_Apellido_Pinta}</TableCell>
-                        <TableCell className="tableCell">{recentDonation.Correo_Pinta}</TableCell>
-                        <TableCell className="tableCell">{recentDonation.Tipo_Pinta}</TableCell>
-                        <TableCell className="tableCell">{format(parseISO(recentDonation.FechaDonacion_Pinta), 'yyyy-MM-dd')}</TableCell>
-                    </TableRow>
+                    {recentDonations.map((donation) => (
+                        <TableRow key={donation.ID_Pinta}>
+                            <TableCell className="tableCell">{donation.ID_Pinta}</TableCell>
+                            <TableCell className="tableCell">{donation.Nombre_Apellido_Pinta}</TableCell>
+                            <TableCell className="tableCell">{donation.Correo_Pinta}</TableCell>
+                            <TableCell className="tableCell">{donation.Tipo_Pinta}</TableCell>
+                            <TableCell className="tableCell">{format(parseISO(donation.FechaDonacion_Pinta), 'yyyy-MM-dd')}</TableCell>
+                        </TableRow>
+                    ))}
                 </TableBody>
             </Table>
         </TableContainer>

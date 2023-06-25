@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom'
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -5,7 +8,6 @@ import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 const SinglePintas = () => {
     const { id } = useParams();
@@ -40,6 +42,9 @@ const SinglePintas = () => {
             <Sidebar />
             <div className="singleContainer">
                 <Navbar />
+                <Link to="/pintas">
+                    <KeyboardBackspaceIcon className="redirectIcon"/>
+                </Link>
                 <div className="top">
                     <div className="left">
                         <div className="editButton">

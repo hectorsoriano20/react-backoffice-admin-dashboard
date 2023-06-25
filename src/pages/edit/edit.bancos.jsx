@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom'
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./edit.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
@@ -58,6 +61,9 @@ const EditBancos = ({inputs, title}) => {
             <Sidebar/>
             <div className="newContainer">
                 <Navbar/>
+                <Link to={`/bancos/${id}`}>
+                    <KeyboardBackspaceIcon className="redirectIcon"/>
+                </Link>
                 <div className="top">
                     <h1>{title}</h1>
                 </div>

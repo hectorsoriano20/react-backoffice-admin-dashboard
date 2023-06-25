@@ -1,3 +1,6 @@
+import React from 'react';
+import { Link } from 'react-router-dom'
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./new.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
@@ -19,6 +22,14 @@ const NewUsers = ({inputs, title}) => {
             const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Persona/POST", formData);
             console.log(response.data);
             alert('Persona agregada correctamente'); // Mensaje de éxito
+            // Enviar datos al endpoint de email
+            const emailData = {
+                Email_Formulario: formData.Correo_Persona,
+                Nombre_Persona: formData.Nombre_Persona,
+                Apellido_Persona: formData.Apellido_Persona
+            }
+            const emailResponse = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/send-email", emailData);
+            console.log(emailResponse.data);
             window.location.reload(); // Refrescar la página
         } catch (err) {
             console.log(err);
@@ -31,6 +42,9 @@ const NewUsers = ({inputs, title}) => {
             <Sidebar/>
             <div className="newContainer">
                 <Navbar/>
+                <Link to="/users">
+                    <KeyboardBackspaceIcon className="redirectIcon"/>
+                </Link>
                 <div className="top">
                     <h1>{title}</h1>
                 </div>

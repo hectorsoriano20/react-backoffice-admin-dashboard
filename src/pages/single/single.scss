@@ -4,6 +4,12 @@
   .singleContainer{
       flex: 6;
 
+      .redirectIcon {
+        color: #ff6d67;
+        text-decoration: none;
+        font-size: 2em;
+      }
+
       .top{
           padding: 20px;
           display: flex;
