@@ -42,16 +42,16 @@ const NewCompradores = ({inputs, title}) => {
                 </div>
                 <div className="bottom">
                     <div className="left">
-                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/813/813789.png"} alt="" />
+                        <img src={file ? URL.createObjectURL(file) : "https://img.freepik.com/premium-vector/hand-drawn-clipboard_574890-638.jpg?w=826"} alt="" />
                     </div>
                     <div className="right">
                         <form onSubmit={handleSubmit}>
-                            <div className="formInput">
+                            {/* <div className="formInput">
                                 <label htmlFor="file">
                                     Imagen:<DriveFolderUploadOutlinedIcon className="icon"/>
                                 </label>
                                 <input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{display: "none"}}/>
-                            </div>
+                            </div> */}
 
                             {inputs.map((input) => (
                                 <div className="formInput" key={input.id}>

@@ -50,16 +50,16 @@ const NewUsers = ({inputs, title}) => {
                 </div>
                 <div className="bottom">
                     <div className="left">
-                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/813/813789.png"} alt="" />
+                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/87/87141.png?w=826&t=st=1687871218~exp=1687871818~hmac=92d8572b4fa1fa85807654d43cfe1c0c9f04d354a424b9d3f0696333a840c837"} alt=""/>
                     </div>
                     <div className="right">
                         <form onSubmit={handleSubmit}>
-                            <div className="formInput">
+                            {/* <div className="formInput">
                                 <label htmlFor="file">
                                     Imagen:<DriveFolderUploadOutlinedIcon className="icon"/>
                                 </label>
                                 <input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{display: "none"}}/>
-                            </div>
+                            </div> */}
 
                             {inputs.map((input) => (
                                 <div className="formInput" key={input.id}>

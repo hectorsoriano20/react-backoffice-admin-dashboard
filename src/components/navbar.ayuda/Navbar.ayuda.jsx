@@ -1,19 +1,19 @@
-import "./navbar.scss"
+import "./navbar.ayuda.scss"
 import SearchIcon from '@mui/icons-material/Search';
 
-const Navbar = () => {
+const NavbarAyuda = () => {
     return (
-        <div className='navbar'>
-            <div className="wrapper">
+        <div className='navbarayuda'>
+            <div className="wrapperayuda">
                 {/* <div className="search">
                     <input type="text" placeholder="Search..."/>
                     <SearchIcon/>
                 </div> */}
-                <div className="item">
+                <div className="itemayuda">
                     <img
                         src="https://images.pexels.com/photos/4047185/pexels-photo-4047185.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         alt=""
-                        className="avatar"
+                        className="avatarayuda"
                     />
                 </div>
             </div>
@@ -21,4 +21,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default NavbarAyuda

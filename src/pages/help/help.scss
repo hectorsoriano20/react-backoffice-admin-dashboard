@@ -1,0 +1,34 @@
+.list{
+    display: flex;
+    width: 100%;
+  
+    .listContainer{
+        flex: 6;
+  
+        .redirectIcon {
+          color: #ff6d67;
+          text-decoration: none;
+          font-size: 2em;
+        }
+  
+        .pintas1{
+              
+          display: flex;
+          padding: 20px;
+          gap: 20px;
+          width: 20px;
+          height: 220px;
+          width: 100%
+      }
+  
+      .pintas2{
+          
+          display: flex;
+          padding: 20px;
+          gap: 20px;
+          width: 20px;
+          height: 220px;
+          width: 100%
+      }
+    }
+  }

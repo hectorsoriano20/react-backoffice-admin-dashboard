@@ -52,7 +52,7 @@ const DatatableCompradores = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Compradores
+              Lista de Solicitudes de Compra
               <Link to="/compradores/new" className="link">
                 Agregar Nuevo Comprador
               </Link>

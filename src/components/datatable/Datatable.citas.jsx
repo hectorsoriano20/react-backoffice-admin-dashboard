@@ -48,7 +48,7 @@ const DatatableCitas = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Citas
+              Lista de Solicitudes de Donación
               <Link to="/citas/new" className="link">
                 Agregar Nueva Cita
               </Link>

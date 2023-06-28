@@ -20,6 +20,12 @@ import EditUsers from "./pages/edit/edit.users";
 import EditBancos from "./pages/edit/edit.bancos";
 import EditaCitas from "./pages/edit/edit.citas";
 import EditCompradores from "./pages/edit/edit.compradores";
+import Help from "./pages/help/Help";
+import UsersHelp from "./components/help.component/help.component.users";
+import PintasHelp from "./components/help.component/help.component.pintas";
+import BancosHelp from "./components/help.component/help.component.bancos";
+import CitasHelp from "./components/help.component/help.component.citas";
+import CompradoresHelp from "./components/help.component/help.component.compradores";
 import {
   BrowserRouter,
   Routes,
@@ -77,6 +83,14 @@ function App() {
               <Route path=":id" element={<RequireAuth><SingleCompradores/></RequireAuth>}/>
               <Route path='new' element={<RequireAuth><NewCompradores inputs = {compradoresInputs} title="Agregar Nueva Solicitud de Compra"/></RequireAuth>}/>
               <Route path='edit/:id' element={<RequireAuth><EditCompradores inputs = {compradoresInputs} title="Editar Solicitud de Compra "/></RequireAuth>}/>
+            </Route>
+            <Route path="ayuda">
+              <Route index element={<RequireAuth><Help/></RequireAuth>}/>
+              <Route path="users" element={<RequireAuth><UsersHelp/></RequireAuth>}/>
+              <Route path="pintas" element={<RequireAuth><PintasHelp/></RequireAuth>}/>
+              <Route path="bancos" element={<RequireAuth><BancosHelp/></RequireAuth>}/>
+              <Route path="citas" element={<RequireAuth><CitasHelp/></RequireAuth>}/>
+              <Route path="compradores" element={<RequireAuth><CompradoresHelp/></RequireAuth>}/>
             </Route>
           </Route>
         </Routes>
