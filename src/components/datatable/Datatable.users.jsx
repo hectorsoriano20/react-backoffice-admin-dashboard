@@ -20,6 +20,7 @@ const DatatableUsers = () => {
                 edad: persona.Edad_Persona,
                 tipo: persona.Tipo_Sangre_Persona,
                 estado: persona.Estado_Persona,
+                cedula: persona.Cedula_Persona
             }))
             setData(transformedData)
         }

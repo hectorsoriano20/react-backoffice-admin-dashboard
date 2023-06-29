@@ -69,16 +69,16 @@ const EditBancos = ({inputs, title}) => {
                 </div>
                 <div className="bottom">
                     <div className="left">
-                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/813/813789.png"} alt="" />
+                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/1092/1092943.png?w=826&t=st=1687872990~exp=1687873590~hmac=06575d956f2e98a0d10bcb156494d989947e31c408dce9c45a15fd5bb580821d"} alt="" />
                     </div>
                     <div className="right">
                         <form onSubmit={handleSubmit}>
-                            <div className="formInput">
+                            {/* <div className="formInput">
                                 <label htmlFor="file">
                                     Imagen:<DriveFolderUploadOutlinedIcon className="icon"/>
                                 </label>
                                 <input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{display: "none"}}/>
-                            </div>
+                            </div> */}
 
                             {inputs.map((input) => (
                                 <div className="formInput" key={input.id}>

@@ -1,10 +1,18 @@
-
 import React from 'react';
 import "./help.component.scss"
 import SidebarAyuda from '../sidebar.ayuda/Sidebar.ayuda';
 import NavbarAyuda from '../navbar.ayuda/Navbar.ayuda';
+import YouTube from 'react-youtube';
 
 const CitasHelp = () => {
+    const videoOptions = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
+
     return (
         <div className="list">
             <SidebarAyuda/>
@@ -20,6 +28,11 @@ const CitasHelp = () => {
 
                 <h2>Agregar Nueva Cita</h2>
                 <p>Al seleccionar la opción <strong>“Agregar Nueva Cita”</strong> muestra una pantalla con el formulario de registro, donde se toman los datos de la cita para luego enviar a nuestro registro.</p>
+                
+                <div className="video-container">
+                    <h2>Video informativo</h2>
+                    <YouTube videoId="EqyqG94lsOE" opts={videoOptions} />
+                </div>
             </div>
         </div>
     )

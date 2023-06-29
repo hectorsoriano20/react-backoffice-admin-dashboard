@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./new.scss"
 import Navbar from "../../components/navbar/Navbar"
@@ -11,6 +11,7 @@ import axios from "axios";
 const NewBancos = ({inputs, title}) => {
     const [file, setFile] = useState("");
     const [formData, setFormData] = useState({});
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -22,7 +23,7 @@ const NewBancos = ({inputs, title}) => {
             const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/BancoSangre/POST", formData);
             console.log(response.data);
             alert('Banco agregado correctamente'); // Mensaje de éxito
-            window.location.reload(); // Refrescar la página
+            navigate(`/bancos`);
         } catch (err) {
             console.log(err);
             alert('Hubo un error al agregar el banco. Por favor, inténtalo de nuevo.'); // Mensaje de error
@@ -75,9 +76,9 @@ const NewBancos = ({inputs, title}) => {
                                 </div>
                             ))}
 
-                            
+                            <button type="submit">Enviar</button>
                         </form>
-                        <button type="submit">Enviar</button>
+                        
                     </div>
                 </div>
             </div>

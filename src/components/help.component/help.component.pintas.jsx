@@ -1,16 +1,24 @@
-
 import React from 'react';
 import "./help.component.scss"
 import SidebarAyuda from '../sidebar.ayuda/Sidebar.ayuda';
 import NavbarAyuda from '../navbar.ayuda/Navbar.ayuda';
+import YouTube from 'react-youtube';
 
 const PintasHelp = () => {
+    const videoOptions = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
+
     return (
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
                 <h2>Ver listado de pintas</h2>
-                <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes, según el tipo de pinta, la cantidad de <strong>pintas de sangre</strong> existentes en el sistema. Adicional, muestra la lista actual de <strong>pintas</strong> registradas mediante donaciones en el sistema.</p>
+                <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes, según el tipo de pinta, la cantidad de <strong>pintas de sangre</strong> disponibles en el sistema. Adicional, muestra la lista actual de <strong>pintas</strong> registradas mediante donaciones en el sistema.</p>
 
                 <h2>Manejar las opciones de la tabla</h2>
                 <p>Cada registro tiene dos opciones, <strong>“Ver Más”</strong> y <strong>“Eliminar”</strong>.</p>
@@ -20,6 +28,11 @@ const PintasHelp = () => {
 
                 <h2>Agregar Nueva Pinta</h2>
                 <p>Al seleccionar la opción <strong>“Agregar Nueva Pinta”</strong> muestra una pantalla con el formulario de registro de una donación, donde se toman los datos para luego enviar a nuestro registro.</p>
+
+                <div className="video-container">
+                    <h2>Video informativo</h2>
+                    <YouTube videoId="w8exoxhw6UU" opts={videoOptions} />
+                </div>
             </div>
         </div>
     )

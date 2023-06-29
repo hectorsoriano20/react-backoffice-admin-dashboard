@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./new.scss"
 import Navbar from "../../components/navbar/Navbar"
@@ -11,6 +11,7 @@ import axios from "axios";
 const NewCitas = ({inputs, title}) => {
     const [file, setFile] = useState("");
     const [formData, setFormData] = useState({});
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -22,7 +23,7 @@ const NewCitas = ({inputs, title}) => {
             const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita/POST", formData);
             console.log(response.data);
             alert('Cita agregada correctamente'); // Mensaje de éxito
-            window.location.reload(); // Refrescar la página
+            navigate(`/citas`);
         } catch (err) {
             console.log(err);
             alert('Hubo un error al agregar la cita. Por favor, inténtalo de nuevo.'); // Mensaje de error

@@ -1,64 +1,71 @@
 export const userInputs = [
   {
     id: 1,
+    label: "Cédula",
+    type: "number",
+    placeholder: "",
+    name: "Cedula_Persona"
+  },
+  {
+    id: 2,
     label: "Nombre",
     type: "text",
     placeholder: "",
     name: "Nombre_Persona"
   },
   {
-    id: 2,
+    id: 3,
     label: "Apellido",
     type: "text",
     placeholder: "",
     name: "Apellido_Persona"
   },
   {
-    id: 3,
+    id: 4,
     label: "Correo",
     type: "email",
     placeholder: "",
     name: "Correo_Persona"
   },
   {
-    id: 4,
+    id: 5,
     label: "Contraseña",
     type: "password",
     name: "Contrasena_Persona"
   },
   {
-    id: 5,
+    id: 6,
     label: "Numero de Teléfono",
     type: "number",
     placeholder: "",
     name: "Numero_Persona"
   },
   {
-    id: 6,
+    id: 7,
     label: "Edad",
-    type: "text",
+    type: "number",
     placeholder: "",
     name: "Edad_Persona"
   },
   {
-    id: 7,
+    id: 8,
     label: "Fecha de Nacimiento",
     type: "date",
     placeholder: "",
     name: "FechaNacimiento_Persona"
   },
   {
-    id: 8,
+    id: 9,
     label: "Tipo de Sangre",
     type: "select",
-    options: ["","A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    options: ["Seleccionar...","A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
     name: "Tipo_Sangre_Persona"
   },
   {
-    id: 9,
+    id: 10,
     label: "Estado",
     type: "select",
-    options: ["", "Activo", "Inactivo"],
+    options: ["Seleccionar", "Activo", "Inactivo"],
     name: "Estado_Persona"
   },
 ];
@@ -66,64 +73,71 @@ export const userInputs = [
 export const userInputsSend = [
   {
     id: 1,
+    label: "Cédula",
+    type: "number",
+    placeholder: "",
+    name: "Cedula_Persona"
+  },
+  {
+    id: 2,
     label: "Nombre",
     type: "text",
     placeholder: "",
     name: "Nombre_Persona"
   },
   {
-    id: 2,
+    id: 3,
     label: "Apellido",
     type: "text",
     placeholder: "",
     name: "Apellido_Persona"
   },
   {
-    id: 3,
+    id: 4,
     label: "Correo",
     type: "email",
     placeholder: "",
     name: "Correo_Persona"
   },
   {
-    id: 4,
+    id: 5,
     label: "Contraseña",
     type: "password",
     name: "Contrasena_Persona"
   },
   {
-    id: 5,
+    id: 6,
     label: "Numero de Teléfono",
     type: "number",
     placeholder: "",
     name: "Numero_Persona"
   },
   {
-    id: 6,
+    id: 7,
     label: "Edad",
     type: "number",
     placeholder: "",
     name: "Edad_Persona"
   },
   {
-    id: 7,
+    id: 8,
     label: "Fecha de Nacimiento",
     type: "date",
     placeholder: "",
     name: "FechaNacimiento_Persona"
   },
   {
-    id: 8,
+    id: 9,
     label: "Tipo de Sangre",
     type: "select",
-    options: ["","A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    options: ["Seleccionar...","A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
     name: "Tipo_Sangre_Persona"
   },
   {
-    id: 9,
+    id: 10,
     label: "Estado",
     type: "select",
-    options: ["", "Activo", "Inactivo"],
+    options: ["Seleccionar...", "Activo", "Inactivo"],
     name: "Estado_Persona"
   },
   
@@ -132,13 +146,20 @@ export const userInputsSend = [
 export const pintasInputs = [
   {
     id: 1,
+    label: "Cedula",
+    type: "text",
+    placeholder: "",
+    name: "Cedula_Persona"
+  },
+  {
+    id: 2,
     label: "Nombre y Apellido",
     type: "text",
     placeholder: "",
     name: "Nombre_Apellido_Pinta"
   },
   {
-    id: 2,
+    id: 3,
     label: "Correo",
     type: "email",
     placeholder: "",
@@ -146,18 +167,32 @@ export const pintasInputs = [
 
   },
   {
-    id: 3,
+    id: 4,
     label: "Tipo de Sangre donada",
     type: "select",
-    options: ["", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
     name: "Tipo_Pinta"
   },
   {
-    id: 4,
+    id: 5,
     label: "Fecha donación",
     type: "date",
     placeholder: "",
     name: "FechaDonacion_Pinta"
+  },
+  {
+    id: 6,
+    label: "Nombre Banco de Sangre",
+    type: "select",
+    options: [],
+    name: "Nombre_BancoSangre"
+  },
+  {
+    id: 7,
+    label: "Estado Pinta",
+    type: "select",
+    options: ["Seleccionar...", "Vigente", "Entregada", "Caducada"],
+    name: "Estado_Pinta"
   },
 ];
 
@@ -232,7 +267,7 @@ export const compradoresInputs = [
     id: 4,
     label: "Tipo de Sangre solicitada para Compra",
     type: "select",
-    options: ["", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
     name: "Grupo_Sanguineo_Compra"
 
   },
@@ -248,7 +283,7 @@ export const compradoresInputs = [
     id: 6,
     label: "Tipo de Sangre del Donante",
     type: "select",
-    options: ["", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
     name: "Grupo_Sanguineo_Donante"
 
   },

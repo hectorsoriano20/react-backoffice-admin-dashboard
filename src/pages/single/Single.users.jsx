@@ -4,10 +4,11 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
+import ChartUsers from '../../components/chart/Chart.users';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import ListUsers from '../../components/table/Table.users';
 
 
 const SingleUsers = () => {
@@ -29,6 +30,7 @@ const SingleUsers = () => {
                         edad: persona.Edad_Persona,
                         tipo: persona.Tipo_Sangre_Persona,
                         estado: persona.Estado_Persona,
+                        cedula: persona.Cedula_Persona
                     };
                     setUserData(userData);
                 }
@@ -71,6 +73,10 @@ const SingleUsers = () => {
                                     {userData.apellido}
                                 </h1>
                                 <div className="detailItem">
+                                    <span className="itemKey">Cedula:</span>
+                                    <span className="itemValue">{userData.cedula}</span>
+                                </div>
+                                <div className="detailItem">
                                     <span className="itemKey">Email:</span>
                                     <span className="itemValue">{userData.email}</span>
                                 </div>
@@ -94,9 +100,11 @@ const SingleUsers = () => {
                         </div>
                     </div>
                     <div className="right">
-                        <Chart title="Pintas Donadas" />
+                        <ChartUsers title="Pintas Donadas" />
                     </div>
                 </div>
+                <h2>Listado de Pintas</h2>
+                <ListUsers/>
             </div>
         </div>
     );

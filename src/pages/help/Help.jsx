@@ -11,7 +11,7 @@ const Help = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer">
-                <NavbarAyuda/>
+                {/* <NavbarAyuda/> */}
                 {/* <Link to="/">
                     <KeyboardBackspaceIcon className="redirectIcon"/>
                 </Link> */}

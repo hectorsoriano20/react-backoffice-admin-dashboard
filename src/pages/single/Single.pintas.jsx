@@ -24,7 +24,10 @@ const SinglePintas = () => {
                         nombre: persona.Nombre_Apellido_Pinta,
                         email: persona.Correo_Pinta,
                         tipo: persona.Tipo_Pinta,
-                        fecha: persona.FechaDonacion_Pinta.split("T")[0] // Divide el string por "T" y toma el primer segmento.
+                        fecha: persona.FechaDonacion_Pinta.split("T")[0], // Divide el string por "T" y toma el primer segmento.
+                        cedula: persona.Cedula_Persona,
+                        banco: persona.Nombre_BancoSangre,
+                        estado: persona.Estado_Pinta
                     };
                     setUserData(userData);
                 }
@@ -64,6 +67,10 @@ const SinglePintas = () => {
                                     {userData.nombre}
                                 </h1>
                                 <div className="detailItem">
+                                    <span className="itemKey">Cedula:</span>
+                                    <span className="itemValue">{userData.cedula}</span>
+                                </div>
+                                <div className="detailItem">
                                     <span className="itemKey">Email:</span>
                                     <span className="itemValue">{userData.email}</span>
                                 </div>
@@ -74,6 +81,14 @@ const SinglePintas = () => {
                                 <div className="detailItem">
                                     <span className="itemKey">Fecha Donación:</span>
                                     <span className="itemValue">{userData.fecha}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Banco de Sangre:</span>
+                                    <span className="itemValue">{userData.banco}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Estado:</span>
+                                    <span className="itemValue">{userData.estado}</span>
                                 </div>
                             </div>
                         </div>

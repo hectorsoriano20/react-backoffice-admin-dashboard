@@ -12,23 +12,22 @@
       }
 
       .pintas1{
-            
         display: flex;
         padding: 20px;
         gap: 20px;
-        width: 20px;
         height: 220px;
-        width: 100%
+        width: 100%;   // Changed from 90% to 100%
+        box-sizing: border-box; // Added box-sizing property
+      }
+      .pintas2{
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+        height: 220px;
+        width: 100%;   // Changed from 90% to 100%
+        box-sizing: border-box; // Added box-sizing property
     }
 
-    .pintas2{
-        
-        display: flex;
-        padding: 20px;
-        gap: 20px;
-        width: 20px;
-        height: 220px;
-        width: 100%
-    }
+    
   }
 }

@@ -17,6 +17,9 @@ const DatatablePintas = () => {
                 email: persona.Correo_Pinta,
                 tipo: persona.Tipo_Pinta,
                 fecha: persona.FechaDonacion_Pinta ? persona.FechaDonacion_Pinta.split("T")[0] : '',
+                cedula: persona.Cedula_Persona,
+                banco: persona.Nombre_BancoSangre,
+                estado: persona.Estado_Pinta
             }))
             setData(transformedData)
         }

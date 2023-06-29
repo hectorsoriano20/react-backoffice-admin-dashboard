@@ -1,13 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./edit.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
 
 const EditPintas = ({inputs, title}) => {
     const { id } = useParams();
@@ -15,10 +13,28 @@ const EditPintas = ({inputs, title}) => {
     const [file, setFile] = useState(null);
     const [formData, setFormData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+    const [bancos, setBancos] = useState([]);
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
     }
+
+    useEffect(() => {
+        const fetchBancos = async () => {
+            try {
+                const response = await axios.get('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/BancoSangre');
+                if (response.data.body && Array.isArray(response.data.body)) {
+                  setBancos(response.data.body.map((banco) => banco.Nombre_BancoSangre));
+                } else {
+                  console.error('Error: La respuesta de la API no contiene un array en la propiedad "body"');
+                }
+              } catch (error) {
+                console.error('Hubo un error!', error);
+              }
+        }
+    
+        fetchBancos();
+    }, []);
 
     useEffect(() => {
         const fetchPinta = async () => {
@@ -69,21 +85,23 @@ const EditPintas = ({inputs, title}) => {
                 </div>
                 <div className="bottom">
                     <div className="left">
-                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/813/813789.png"} alt="" />
+                        <img src={file ? URL.createObjectURL(file) : "https://cdn-icons-png.flaticon.com/512/822/822283.png?w=826&t=st=1687872525~exp=1687873125~hmac=5d68dfff5a84a8b3c39f451b15145213488aecf656133d506b2a2213304b8e39"} alt="" />
                     </div>
                     <div className="right">
                         <form onSubmit={handleSubmit}>
-                            <div className="formInput">
-                                <label htmlFor="file">
-                                    Imagen:<DriveFolderUploadOutlinedIcon className="icon"/>
-                                </label>
-                                <input type="file" id="file" onChange={e=>setFile(e.target.files[0])} style={{display: "none"}}/>
-                            </div>
-
                             {inputs.map((input) => (
                                 <div className="formInput" key={input.id}>
                                     <label>{input.label}</label>
-                                    {input.type === "select" ? (
+                                    {input.name === "Nombre_BancoSangre" ? (
+                                        <select name={input.name} onChange={handleChange}>
+                                            <option value="">Seleccione...</option> {/* Add an empty option */}
+                                            {bancos.map((banco, index) => (
+                                                <option key={index} value={banco}>
+                                                    {banco}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    ) : input.type === "select" ? (
                                         <select name={input.name} onChange={handleChange}>
                                             {input.options.map((option, index) => (
                                                 <option key={index} value={option}>

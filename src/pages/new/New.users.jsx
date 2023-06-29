@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./new.scss"
 import Navbar from "../../components/navbar/Navbar"
@@ -11,6 +11,7 @@ import axios from "axios";
 const NewUsers = ({inputs, title}) => {
     const [file, setFile] = useState("");
     const [formData, setFormData] = useState({});
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value});
@@ -30,7 +31,7 @@ const NewUsers = ({inputs, title}) => {
             }
             const emailResponse = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/send-email", emailData);
             console.log(emailResponse.data);
-            window.location.reload(); // Refrescar la página
+            navigate(`/users`);
         } catch (err) {
             console.log(err);
             alert('Hubo un error al agregar la persona. Por favor, inténtalo de nuevo.'); // Mensaje de error

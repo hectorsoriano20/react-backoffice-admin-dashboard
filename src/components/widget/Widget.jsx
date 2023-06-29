@@ -69,21 +69,21 @@ const Widget = ( {type} ) => {
             break;
         case "pinta":
             data={
-                title: "PINTAS DE SANGRE",
+                title: "TOTAL DE PINTAS DE SANGRE",
                 isMoney: false,
                 icon: <BloodtypeIcon className="icon"/>,
             };
             break;    
         case "cita":
             data={
-                title: "CITAS",
+                title: "TOTAL DE CITAS AGENDADAS",
                 isMoney: false,
                 icon: <EventNoteIcon className="icon"/>,
             };
             break;        
         case "comprador":
             data={
-                title: "COMPRADORES",
+                title: "TOTAL DE SOLICITUDES DE COMPRA",
                 isMoney: false,
                 icon: <PersonOutlineOutlinedIcon className="icon"/>,
             };

@@ -70,7 +70,7 @@ function App() {
               <Route index element={<RequireAuth><BancosList/></RequireAuth>}/>
               <Route path=":id" element={<RequireAuth><SingleBancos/></RequireAuth>}/>
               <Route path='new' element={<RequireAuth><NewBancos inputs = {bancosInputs} title="Agregar Nuevo Banco"/></RequireAuth>}/>
-              <Route path='edit/:id' element={<RequireAuth><EditBancos inputs = {bancosInputs} title="Editar Pinta "/></RequireAuth>}/>
+              <Route path='edit/:id' element={<RequireAuth><EditBancos inputs = {bancosInputs} title="Editar Banco de Sangre "/></RequireAuth>}/>
             </Route>
             <Route path="citas">
               <Route index element={<RequireAuth><CitasList/></RequireAuth>}/>

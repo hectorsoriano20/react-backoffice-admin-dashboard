@@ -1,5 +1,6 @@
 export const userColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'cedula', headerName: 'Cédula', width: 130 },
   { field: 'nombre', headerName: 'Nombre', width: 100 },
   { field: 'apellido', headerName: 'Apellido', width: 100 },
   { field: 'email', headerName: 'Correo Electrónico', width: 250 },
@@ -7,14 +8,18 @@ export const userColumns = [
   { field: 'edad', headerName: 'Edad', width: 70 },
   { field: 'tipo', headerName: 'Tipo', width: 70 },
   { field: 'estado', headerName: 'Estado', width: 90 },
+  
 ]
 
 export const pintaColumns = [
   { field: 'id', headerName: 'ID', width: 70 },
+  { field: 'cedula', headerName: 'Cédula', width: 130 },
   { field: 'nombre', headerName: 'Nombre Completo', width: 250 },
   { field: 'email', headerName: 'Correo Electrónico', width: 200 },
   { field: 'tipo', headerName: 'Tipo', width: 70 },
+  { field: 'banco', headerName: 'Banco de Sangre', width: 200 },
   { field: 'fecha', headerName: 'Fecha Donación', width: 170 },
+  { field: 'estado', headerName: 'Estado', width: 90 },
 ]
 
 export const bancoColumns = [
