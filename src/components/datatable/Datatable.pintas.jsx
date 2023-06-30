@@ -52,7 +52,7 @@ const DatatablePintas = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Pintas
+              
               <Link to="/pintas/new" className="link">
                 Agregar Nueva Pinta
               </Link>

@@ -13,17 +13,17 @@ const Chart = ({aspect, title}) => {
           const response = await axios.get('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Pinta');
           const pintas = response.data.body;
           
-          const monthData = Array(7).fill(0);  // Array to hold count of pintas for each month from February to August
+          const monthData = Array(8).fill(0);  // Array to hold count of pintas for each month from January to August
 
           pintas.forEach(pinta => {
             const month = format(parseISO(pinta.FechaDonacion_Pinta), 'M') - 1;  // Get month number from date (0-indexed)
-            if (month >= 1 && month <= 7) { // Only count months from February (1) to August (7)
-              monthData[month - 1]++; // Adjust index to start from 0 for February
+            if (month >= 0 && month <= 7) { // Only count months from January (0) to August (7)
+              monthData[month]++; // Adjust index to start from 0 for January
             }
           });
 
           const data = monthData.map((count, index) => ({
-            name: format(new Date(2023, index + 1), 'MMMM'), // Get month name from month number, adjust index to start from 0 for February
+            name: format(new Date(2023, index), 'MMMM'), // Get month name from month number, adjust index to start from 0 for January
             Total: count
           }));
 

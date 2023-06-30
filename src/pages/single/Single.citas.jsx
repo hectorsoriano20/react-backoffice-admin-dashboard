@@ -4,7 +4,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -22,9 +21,13 @@ const SingleCitas = () => {
                     const persona = result.data.body;  // Aquí cambiamos para acceder directamente al 'body'
                     const userData = {
                         id: persona.ID_Cita,
+                        cedula: persona.Cedula_Cita,
+                        nombre: persona.Nombre_Cita,
                         email: persona.Correo,
+                        sangrecita: persona.Tipo_Sangre_Cita,
                         fecha: persona.Fecha_Cita ? persona.Fecha_Cita.split("T")[0] : '',
                         hora: persona.Hora_Cita,
+                        estado: persona.Estado_Cita,
                     };
                     setUserData(userData);
                 }
@@ -52,10 +55,10 @@ const SingleCitas = () => {
                             Editar
                         </Link>
                         </div>
-                        <h1 className="title">Información</h1>
+                        <h1 className="title">Información de la Cita</h1>
                         <div className="item">
                             <img
-                                src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+                                src="https://img.freepik.com/premium-vector/desk-black-calendar-icon-work-deadline-symbol_572038-94.jpg?w=826"
                                 alt=""
                                 className="itemImg"
                             />
@@ -64,8 +67,20 @@ const SingleCitas = () => {
                                     {userData.nombre}
                                 </h1> */}
                                 <div className="detailItem">
+                                    <span className="itemKey">Cedula:</span>
+                                    <span className="itemValue">{userData.cedula}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Solicitante:</span>
+                                    <span className="itemValue">{userData.nombre}</span>
+                                </div>
+                                <div className="detailItem">
                                     <span className="itemKey">Correo asociado:</span>
                                     <span className="itemValue">{userData.email}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Sangre a Donar:</span>
+                                    <span className="itemValue">{userData.sangrecita}</span>
                                 </div>
                                 <div className="detailItem">
                                     <span className="itemKey">Fecha Cita:</span>
@@ -74,6 +89,10 @@ const SingleCitas = () => {
                                 <div className="detailItem">
                                     <span className="itemKey">Hora Cita:</span>
                                     <span className="itemValue">{userData.hora}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Estado:</span>
+                                    <span className="itemValue">{userData.estado}</span>
                                 </div>
                             </div>
                         </div>

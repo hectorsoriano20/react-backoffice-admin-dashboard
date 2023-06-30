@@ -4,7 +4,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./new.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
-import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 import { useState } from "react";
 import axios from "axios";
 
@@ -19,16 +18,26 @@ const NewCitas = ({inputs, title}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+
         try {
             const response = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita/POST", formData);
             console.log(response.data);
             alert('Cita agregada correctamente'); // Mensaje de éxito
+            // Enviar datos al endpoint de email
+            const emailData = {
+                Correo: formData.Correo,
+                Nombre_Cita: formData.Nombre_Cita,
+            }
+            const emailResponse = await axios.post("https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/send-cita-email", emailData);
+            console.log(emailResponse.data);
             navigate(`/citas`);
         } catch (err) {
             console.log(err);
             alert('Hubo un error al agregar la cita. Por favor, inténtalo de nuevo.'); // Mensaje de error
         }
     }
+        
 
     return (
         <div className='new'>

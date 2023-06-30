@@ -46,11 +46,11 @@ const ListPintasBancos = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell className="tableCell">ID</TableCell>
-                        <TableCell className="tableCell">Donante</TableCell>
-                        <TableCell className="tableCell">Tipo de Sangre</TableCell>
-                        <TableCell className="tableCell">Fecha de Donación</TableCell>
-                        <TableCell className="tableCell">Estado de la Pinta</TableCell>
+                        <TableCell className="tableHead">ID</TableCell>
+                        <TableCell className="tableHead">Donante</TableCell>
+                        <TableCell className="tableHead">Tipo de Sangre</TableCell>
+                        <TableCell className="tableHead">Fecha de Donación</TableCell>
+                        <TableCell className="tableHead">Estado de la Pinta</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>

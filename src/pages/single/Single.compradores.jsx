@@ -4,7 +4,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -22,13 +21,16 @@ const SingleCompradores = () => {
                     const persona = result.data.body;  // Aquí cambiamos para acceder directamente al 'body'
                     const userData = {
                         id: persona.ID_CompraSangre,
+                        cedula: persona.Cedula_Comprador,
                         nombre: persona.Nombre_Comprador,
                         email: persona.Correo_Compra,
                         telefono: persona.Telefono_Compra,
                         sangrecompra: persona.Grupo_Sanguineo_Compra,
+                        ceduladonante: persona.Cedula_Donante,
                         donante: persona.Nombre_Donante,
                         sangredonacion: persona.Grupo_Sanguineo_Donante,
                         edad: persona.Edad_Donante,
+                        estado: persona.Estatus_Compra,
                     };
                     setUserData(userData);
                 }
@@ -56,10 +58,10 @@ const SingleCompradores = () => {
                             Editar
                         </Link>
                         </div>
-                        <h1 className="title">Información</h1>
+                        <h1 className="title">Información de la Solicitud de Compra</h1>
                         <div className="item">
                             <img
-                                src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+                                src="https://img.freepik.com/premium-vector/hand-drawn-clipboard_574890-638.jpg?w=826"
                                 alt=""
                                 className="itemImg"
                             />
@@ -67,6 +69,10 @@ const SingleCompradores = () => {
                                 {/* <h1 className="itemTitle">
                                     {userData.nombre}
                                 </h1> */}
+                                <div className="detailItem">
+                                    <span className="itemKey">Cédula del Comprador:</span>
+                                    <span className="itemValue">{userData.cedula}</span>
+                                </div>
                                 <div className="detailItem">
                                     <span className="itemKey">Nombre y Apellido del Comprador:</span>
                                     <span className="itemValue">{userData.nombre}</span>
@@ -84,6 +90,10 @@ const SingleCompradores = () => {
                                     <span className="itemValue">{userData.sangrecompra}</span>
                                 </div>
                                 <div className="detailItem">
+                                    <span className="itemKey">Cédula del Donante:</span>
+                                    <span className="itemValue">{userData.ceduladonante}</span>
+                                </div>
+                                <div className="detailItem">
                                     <span className="itemKey">Nombre del donante:</span>
                                     <span className="itemValue">{userData.donante}</span>
                                 </div>
@@ -94,6 +104,10 @@ const SingleCompradores = () => {
                                 <div className="detailItem">
                                     <span className="itemKey">Edad del donante:</span>
                                     <span className="itemValue">{userData.edad}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Estado:</span>
+                                    <span className="itemValue">{userData.estado}</span>
                                 </div>
                             </div>
                         </div>

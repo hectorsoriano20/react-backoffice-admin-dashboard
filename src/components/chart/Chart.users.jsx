@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { format, parseISO } from "date-fns";
-import { ResponsiveContainer, AreaChart, CartesianGrid, XAxis, Tooltip, Area } from 'recharts';
+import { ResponsiveContainer, BarChart, CartesianGrid, XAxis, Tooltip, Bar } from 'recharts';
 import "./chart.scss"
 
 const ChartUsers = ({aspect, title}) => {
@@ -44,8 +44,8 @@ const ChartUsers = ({aspect, title}) => {
     return (
         <div className="chart">
             <div className="title">{title}</div>
-            <ResponsiveContainer width="100%" height={200}>
-                <AreaChart
+            <ResponsiveContainer width="100%" height={310}>
+                <BarChart
                     width={500}
                     height={400}
                     data={chartData}
@@ -59,8 +59,8 @@ const ChartUsers = ({aspect, title}) => {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <Tooltip />
-                    <Area type="monotone" dataKey="Total" stroke="#d03932" fill="#ff6d67" />
-                </AreaChart>
+                    <Bar dataKey="Total" fill="#ff6d67" />
+                </BarChart>
             </ResponsiveContainer>
         </div>
     )

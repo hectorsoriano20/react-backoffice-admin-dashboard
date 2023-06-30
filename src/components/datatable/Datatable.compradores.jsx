@@ -13,13 +13,16 @@ const DatatableCompradores = () => {
             const result = await axios('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/CompraSangre')
             const transformedData = result.data.body.map(persona => ({
                 id: persona.ID_CompraSangre,
+                cedula: persona.Cedula_Comprador,
                 nombre: persona.Nombre_Comprador,
                 email: persona.Correo_Compra,
                 telefono: persona.Telefono_Compra,
                 sangrecompra: persona.Grupo_Sanguineo_Compra,
+                ceduladonante: persona.Cedula_Donante,
                 donante: persona.Nombre_Donante,
                 sangredonacion: persona.Grupo_Sanguineo_Donante,
                 edad: persona.Edad_Donante,
+                estado: persona.Estatus_Compra,
             }))
             setData(transformedData)
         }
@@ -52,7 +55,7 @@ const DatatableCompradores = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Solicitudes de Compra
+              
               <Link to="/compradores/new" className="link">
                 Agregar Nuevo Comprador
               </Link>

@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
 import "./list.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import DatatableUsers from "../../components/datatable/Datatable.users"
+import FeaturedActive from '../../components/featured/users.percentage/Featured.active';
+import FeaturedInactive from '../../components/featured/users.percentage/Featured.inactive';
 
 const UserList = () => {
+    const [openUsuarios, setOpenUsuarios] = useState(true);
+    const [openListado, setOpenListado] = useState(false);
     return (
         <div className="list">
             <Sidebar/>
@@ -15,7 +21,26 @@ const UserList = () => {
                 <Link to="/">
                     <KeyboardBackspaceIcon className="redirectIcon"/>
                 </Link>
-                <DatatableUsers/>
+                <div className="titleContainer" onClick={() => setOpenUsuarios(!openUsuarios)} style={{width: '100%', cursor: 'pointer'}}>
+                    <h2>ESTATUS DE USUARIOS</h2>
+                    <ExpandMoreIcon />
+                </div>
+                <Collapse in={openUsuarios} timeout="auto" unmountOnExit>
+                    <div className="user">
+                        <FeaturedActive/>
+                        <FeaturedInactive/>
+                    </div>
+                </Collapse>
+                <div className="titleContainer" onClick={() => setOpenListado(!openListado)} style={{width: '100%', cursor: 'pointer'}}>
+                    <h2>LISTADO DE USUARIOS</h2>
+                    <ExpandMoreIcon />
+                </div>
+                <Collapse in={openListado} timeout="auto" unmountOnExit>
+                    <div className="datatable">
+                        <DatatableUsers/>
+                    </div>
+                </Collapse>
+                
             </div>
                 
         </div>

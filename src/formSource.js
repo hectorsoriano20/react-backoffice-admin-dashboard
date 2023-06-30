@@ -217,13 +217,34 @@ export const bancosInputs = [
 export const citasInputs = [
   {
     id: 1,
+    label: "Cédula del Solicitante",
+    type: "number",
+    placeholder: "",
+    name: "Cedula_Cita"
+  },
+  {
+    id: 2,
+    label: "Nombre del Solicitante",
+    type: "text",
+    placeholder: "",
+    name: "Nombre_Cita"
+  },
+  {
+    id: 3,
     label: "Correo asociado a la cita",
     type: "email",
     placeholder: "",
     name: "Correo"
   },
   {
-    id: 2,
+    id: 4,
+    label: "Tipo de Sangre a Donar",
+    type: "select",
+    options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
+    name: "Tipo_Sangre_Cita"
+  },
+  {
+    id: 5,
     label: "Fecha Cita",
     type: "date",
     placeholder: "",
@@ -231,11 +252,19 @@ export const citasInputs = [
 
   },
   {
-    id: 3,
+    id: 6,
     label: "Hora Cita",
     type: "time",
     placeholder: "",
     name: "Hora_Cita"
+
+  },
+  {
+    id: 7,
+    label: "Estado",
+    type: "select",
+    options: ["Seleccionar...", "Aprobada", "Rechazada"],
+    name: "Estado_Cita"
 
   },
 ]
@@ -243,13 +272,20 @@ export const citasInputs = [
 export const compradoresInputs = [
   {
     id: 1,
+    label: "Cédula del Comprador",
+    type: "number",
+    placeholder: "",
+    name: "Cedula_Comprador"
+  },
+  {
+    id: 2,
     label: "Nombre del Comprador",
     type: "text",
     placeholder: "",
     name: "Nombre_Comprador"
   },
   {
-    id: 2,
+    id: 3,
     label: "Correo del Comprador",
     type: "email",
     placeholder: "",
@@ -257,14 +293,14 @@ export const compradoresInputs = [
 
   },
   {
-    id: 3,
+    id: 4,
     label: "Telefono del Comprador",
     type: "number",
     placeholder: "",
     name: "Telefono_Compra",
   },
   {
-    id: 4,
+    id: 5,
     label: "Tipo de Sangre solicitada para Compra",
     type: "select",
     options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
@@ -272,7 +308,15 @@ export const compradoresInputs = [
 
   },
   {
-    id: 5,
+    id: 6,
+    label: "Cédula del Donante",
+    type: "number",
+    placeholder: "",
+    name: "Cedula_Donante"
+
+  },
+  {
+    id: 7,
     label: "Nombre del Donante",
     type: "text",
     placeholder: "",
@@ -280,7 +324,7 @@ export const compradoresInputs = [
 
   },
   {
-    id: 6,
+    id: 8,
     label: "Tipo de Sangre del Donante",
     type: "select",
     options: ["Seleccionar...", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],
@@ -288,11 +332,19 @@ export const compradoresInputs = [
 
   },
   {
-    id: 7,
+    id: 9,
     label: "Edad del donante",
     type: "number",
     placeholder: "",
     name: "Edad_Donante"
+
+  },
+  {
+    id: 10,
+    label: "Estado",
+    type: "select",
+    options: ["Seleccionar...", "Aprobada", "Rechazada"],
+    name: "Estatus_Compra"
 
   },
 ]

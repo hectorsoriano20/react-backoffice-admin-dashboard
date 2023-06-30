@@ -5,7 +5,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./edit.scss"
 import Navbar from "../../components/navbar/Navbar"
 import Sidebar from "../../components/sidebar/Sidebar"
-import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
 
 const EditPintas = ({inputs, title}) => {
     const { id } = useParams();

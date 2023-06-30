@@ -1,0 +1,58 @@
+.featureddon{
+    flex: 2;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    padding: 10px;
+    position: relative;  // added to position countContainer
+    height: 160px;
+    width: 50%;
+  
+    .topdon{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: rgb(0, 0, 0);
+        font-weight: bold;
+  
+        .titledon{
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+  
+    .bottomdon{
+        padding: 18px;
+        display: flex;
+        font-display: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+  
+        .featuredChartdon{
+            width: 100px;
+            height: 100px;
+        }
+  
+        .titledon{
+            font-weight: 500;
+            color: gray;
+        }
+  
+        .desc{
+            font-weight: 300;
+            font-size: 12px;
+            color: gray;
+            text-align: center;
+        }
+  
+        .countContainerdon{  // added to show count at bottom right corner
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            font-size: 50px;
+            color: black;
+            font-weight: bold;
+        }
+    }
+  }
+  

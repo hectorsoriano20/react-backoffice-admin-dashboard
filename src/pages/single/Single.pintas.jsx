@@ -4,7 +4,6 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -55,10 +54,10 @@ const SinglePintas = () => {
                             Editar
                         </Link>
                         </div>
-                        <h1 className="title">Información</h1>
+                        <h1 className="title">Información de la Donación</h1>
                         <div className="item">
                             <img
-                                src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+                                src="https://cdn-icons-png.flaticon.com/512/822/822283.png?w=826&t=st=1687872525~exp=1687873125~hmac=5d68dfff5a84a8b3c39f451b15145213488aecf656133d506b2a2213304b8e39"
                                 alt=""
                                 className="itemImg"
                             />

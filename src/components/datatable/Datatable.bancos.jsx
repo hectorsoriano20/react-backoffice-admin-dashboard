@@ -47,7 +47,7 @@ const DatatableBancos = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Bancos
+              
               <Link to="/bancos/new" className="link">
                 Agregar Nuevo Banco
               </Link>

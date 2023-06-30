@@ -17,17 +17,18 @@ const CompradoresHelp = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
-                <h2>Ver listado de solicitudes de compra</h2>
-                <p>Al ingresar al módulo, presenta la lista de <strong>solicitudes de compra de pintas de sangre</strong> que se encuentran registrados en el sistema.</p>
+                <h1>Ver listado de solicitudes de compra</h1>
+                <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes y cantidades, según el estado, las solicitudes de compra de <strong>pintas de sangre</strong> que se encuentran registrados. Adicionalmente, permite desplegar el listado de <strong>solicitudes de compra</strong>.</p>
+
+                <h2>Agregar Nuevo Comprador</h2>
+                <p>Al desplegar el listado, permite seleccionar la opción <strong>“Agregar Nuevo Comprador”</strong> donde muestra una pantalla con el formulario de registro, donde se toman los datos de la solicitud de <strong>compra</strong>.</p>
 
                 <h2>Manejar las opciones de la tabla</h2>
                 <p>Cada registro tiene dos opciones, <strong>“Ver Más”</strong> y <strong>“Eliminar”</strong>.</p>
-                <p>-Al seleccionar la opción <strong>“Ver Más”</strong> muestra la siguiente pantalla con información relevante de la solicitud de compra.</p>
-                <p>Dentro de la pantalla <strong>“Ver Más”</strong> se encuentra la opción <strong>“Editar”</strong> que permite editar la información de la solicitud de compra utilizando el formulario de registro y actualizar la base de datos.</p>
-                <p>-Al seleccionar la opción <strong>“Eliminar”</strong> muestra un mensaje de confirmación antes de eliminar el registro y luego de aceptar, desaparece el mismo.</p>
+                <p>-Al seleccionar la opción <strong>“Ver Más”</strong> muestra una pantalla con información relevante de la solicitud de <strong>compra</strong>.</p>
+                <p>Dentro de la pantalla <strong>“Ver Más”</strong> se encuentra la opción <strong>“Editar”</strong> que permite editar la información de la <strong>solicitud de compra</strong> utilizando el formulario de registro de una solciitud de compra.</p>
+                <p>-Al seleccionar la opción <strong>“Eliminar”</strong> permite eliminar el registro seleccionado. Muestra un mensaje de confirmación antes de proceder, si aceptamos, desaparece el registro.</p>
 
-                <h2>Agregar Nuevo Comprador</h2>
-                <p>Al seleccionar la opción <strong>“Agregar Nuevo Comprador”</strong> muestra una pantalla con el formulario de registro, donde se toman los datos de la solicitud de compra para luego enviar a nuestro registro.</p>
                 
                 <div className="video-container">
                     <h2>Video informativo</h2>

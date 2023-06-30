@@ -1,9 +1,12 @@
 .home{
   display: flex;
+  
 
   .homeContainer{
       background-color: white;
       flex: 6;
+      width: 100%;
+      overflow: hidden;
 
       .widgets, .charts{
           display: flex;
@@ -12,14 +15,24 @@
       }
 
       .charts{
-          padding: 5px 20px;
+          padding: 2px 20px;
       }
 
       .listContainer{
-          -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-          box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-          padding: 10px;
-          margin: 20px;
+          flex: 6;
+
+          .titleContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff; // Add this if you want a background color
+            -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+            box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+            margin-top: 20px;
+            color: #a82b1e;
+            cursor: pointer;
+          }
 
           .listTitle{
               font-weight: 500;

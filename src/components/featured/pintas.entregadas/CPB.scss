@@ -2,8 +2,10 @@
     flex: 2;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-    padding: 10px;
+    padding: 20px;
     position: relative; // Añadido para permitir el posicionamiento absoluto de los hijos
+    width: 30%;
+    height: 80%;
   
     .top{
         display: flex;
@@ -21,14 +23,13 @@
     .bottom{
         padding: 18px;
         display: flex;
-        font-display: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         gap: 20px;
   
         .featuredChart{
-            width: 130px;
-            height: 100px;
+            width: 90px;
+            height: 80px;
         }
   
         .title{
@@ -46,15 +47,12 @@
             color: gray;
             text-align: center;
         }
-    }
 
-    // Añadido para mostrar el recuento en la esquina inferior derecha
-    .countContainer {
-        position: absolute;
-        right: 10px;
-        bottom: 10px;
-        font-size: 14px;
-        color: #555;
+        .countContainer {
+            font-size: 30px;
+            color: #555;
+            
+        }
     }
   
 }

@@ -62,14 +62,14 @@ const Widget = ( {type} ) => {
     switch(type){
         case "user":
             data={
-                title: "TOTAL DE USUARIOS",
+                title: "TOTAL DE USUARIOS REGISTRADOS",
                 isMoney: false,
                 icon: <PeopleAltIcon className="icon"/>,
             };
             break;
         case "pinta":
             data={
-                title: "TOTAL DE PINTAS DE SANGRE",
+                title: "TOTAL DE PINTAS DE SANGRE REGISTRADAS",
                 isMoney: false,
                 icon: <BloodtypeIcon className="icon"/>,
             };

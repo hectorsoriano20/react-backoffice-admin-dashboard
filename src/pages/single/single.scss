@@ -37,15 +37,17 @@
               }
 
               .item{
-                  display: flex;
-                  gap: 20px;
-
-                  .itemImg{
-                      width: 100px;
-                      height: 100px;
-                      border-radius: 50%;
-                      object-fit: cover;
-                  }
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                gap: 20px;
+            
+                .itemImg{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
 
                   .details{
                       .itemTitle{
@@ -61,7 +63,7 @@
 
                       .detailItem{
                           margin-bottom: 10px;
-                          font-size: 14px;
+                          font-size: 16px;
 
                           .itemKey{
                               font-weight: bold;
@@ -70,9 +72,25 @@
                           }
 
                           .itemValue{
-                              font-weight: 300;
+                            font-weight: bold;
                           }
                       }
+                      .detailItem2{
+                        margin-bottom: 10px;
+                        font-size: 30px;
+
+                        .itemKey2{
+                            font-weight: bold;
+                            color: rgb(122, 23, 23);
+                            margin-right: 5px;
+                        }
+
+                        .itemValue2{
+                            font-weight: bold;
+                            
+                            
+                        }
+                    }
                   }
               }
           }
@@ -80,6 +98,20 @@
           .right{
               flex: 2;
           }
+      
+      }
+
+      .titleContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff; // Add this if you want a background color
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+        box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        margin-top: 20px;
+        color: #a82b1e;
+        cursor: pointer;
       }
 
   }

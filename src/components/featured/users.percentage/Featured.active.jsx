@@ -5,7 +5,7 @@ import "react-circular-progressbar/dist/styles.css"
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const Featured = () => {
+const FeaturedActive = () => {
     const [percentage, setPercentage] = useState(0);
     const [activeUsersCount, setActiveUsersCount] = useState(0);  // added to store count of active users
 
@@ -31,23 +31,21 @@ const Featured = () => {
     }, []);
 
     return (
-        <div className="featured">
-            <div className="top">
-                <h1 className="title">Donantes activos</h1>
+        <div className="featureddon">
+            <div className="topdon">
+                <h1 className="titledon">Donantes activos</h1>
                 {/* <MoreVertOutlinedIcon fontSize="small"/> */}
             </div>
-            <div className="bottom">
-                <div className="featuredChart">
-                    <CircularProgressbar value={percentage} text={`${percentage}%`} strokeWidth={5} styles={buildStyles({pathColor: '#ff6d67', textColor: '#ff6d67'})}/>
+            <div className="bottomdon">
+                <div className="featuredChartdon">
+                    <CircularProgressbar value={percentage} text={`${percentage}%`} strokeWidth={5} styles={buildStyles({pathColor: 'green', textColor: 'green'})}/>
                 </div>
-                {/* <p className="title">Capacidad de Pintas</p>
-                <p className="amount">100</p> */}
-                <div className="countContainer">  {/* Added count container */}
-                    {`Donantes activos: ${activeUsersCount}`}
+                <div className="countContainedon">  {/* Added count container */}
+                    {`Cantidad: ${activeUsersCount}`}
                 </div>
             </div>
         </div>
     )
 }
 
-export default Featured
+export default FeaturedActive

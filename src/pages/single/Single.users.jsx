@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -14,6 +16,7 @@ import ListUsers from '../../components/table/Table.users';
 const SingleUsers = () => {
     const { id } = useParams();
     const [userData, setUserData] = useState({});
+    const [openListado, setOpenListado] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -27,6 +30,7 @@ const SingleUsers = () => {
                         apellido: persona.Apellido_Persona,
                         email: persona.Correo_Persona,
                         numero: persona.Numero_Persona,
+                        fechanacimiento: persona.FechaNacimiento_Persona ? persona.FechaNacimiento_Persona.split("T")[0] : '',
                         edad: persona.Edad_Persona,
                         tipo: persona.Tipo_Sangre_Persona,
                         estado: persona.Estado_Persona,
@@ -58,10 +62,10 @@ const SingleUsers = () => {
                                 Editar
                             </Link>
                         </div>
-                        <h1 className="title">Información</h1>
+                        <h1 className="title">Ficha del Usuario</h1>
                         <div className="item">
                             <img
-                                src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+                                src="https://cdn-icons-png.flaticon.com/512/87/87141.png?w=826&t=st=1687871218~exp=1687871818~hmac=92d8572b4fa1fa85807654d43cfe1c0c9f04d354a424b9d3f0696333a840c837"
                                 alt=""
                                 className="itemImg"
                             />
@@ -85,6 +89,10 @@ const SingleUsers = () => {
                                     <span className="itemValue">{userData.numero}</span>
                                 </div>
                                 <div className="detailItem">
+                                    <span className="itemKey">Fecha de Nacimiento:</span>
+                                    <span className="itemValue">{userData.fechanacimiento}</span>
+                                </div>
+                                <div className="detailItem">
                                     <span className="itemKey">Edad:</span>
                                     <span className="itemValue">{userData.edad}</span>
                                 </div>
@@ -103,8 +111,15 @@ const SingleUsers = () => {
                         <ChartUsers title="Pintas Donadas" />
                     </div>
                 </div>
-                <h2>Listado de Pintas</h2>
-                <ListUsers/>
+                <div className="titleContainer" onClick={() => setOpenListado(!openListado)} style={{width: '100%', cursor: 'pointer'}}>
+                        <h2>LISTADO DE PINTAS DONADAS</h2>
+                        <ExpandMoreIcon />
+                    </div>
+                    <Collapse in={openListado} timeout="auto" unmountOnExit>
+                        <div className="datatable">
+                            <ListUsers/>
+                        </div>
+                    </Collapse>
             </div>
         </div>
     );

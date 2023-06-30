@@ -43,11 +43,12 @@ const List = () => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
                 <TableHead>
                     <TableRow>
-                        <TableCell className="tableCell">ID</TableCell>
-                        <TableCell className="tableCell">Nombre y Apellido</TableCell>
-                        <TableCell className="tableCell">Correo</TableCell>
-                        <TableCell className="tableCell">Tipo de Sangre</TableCell>
-                        <TableCell className="tableCell">Fecha de Donación</TableCell>
+                        <TableCell className="tableHead">ID</TableCell>
+                        <TableCell className="tableHead">Nombre y Apellido</TableCell>
+                        <TableCell className="tableHead">Correo</TableCell>
+                        <TableCell className="tableHead">Tipo de Sangre</TableCell>
+                        <TableCell className="tableHead">Banco de Sangre</TableCell>
+                        <TableCell className="tableHead">Fecha de Donación</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -57,6 +58,7 @@ const List = () => {
                             <TableCell className="tableCell">{donation.Nombre_Apellido_Pinta}</TableCell>
                             <TableCell className="tableCell">{donation.Correo_Pinta}</TableCell>
                             <TableCell className="tableCell">{donation.Tipo_Pinta}</TableCell>
+                            <TableCell className="tableCell">{donation.Nombre_BancoSangre}</TableCell>
                             <TableCell className="tableCell">{format(parseISO(donation.FechaDonacion_Pinta), 'yyyy-MM-dd')}</TableCell>
                         </TableRow>
                     ))}

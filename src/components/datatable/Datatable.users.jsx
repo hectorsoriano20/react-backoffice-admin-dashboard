@@ -53,7 +53,7 @@ const DatatableUsers = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Usuarios
+              
               <Link to="/users/new" className="link">
                 Crear Nuevo Usuario
               </Link>

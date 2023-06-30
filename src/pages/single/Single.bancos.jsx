@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Collapse from '@mui/material/Collapse';
 import "./single.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import Chart from "../../components/chart/Chart";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -14,6 +15,7 @@ const SingleBancos = () => {
     const { id } = useParams();
     const [userData, setUserData] = useState({});
     const [numRecords, setNumRecords] = useState(null);
+    const [openListado, setOpenListado] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -59,10 +61,10 @@ const SingleBancos = () => {
                             Editar
                         </Link>
                         </div>
-                        <h1 className="title">Información</h1>
+                        <h1 className="title">Información del Banco de Sangre</h1>
                         <div className="item">
                             <img
-                                src="https://img.freepik.com/premium-vector/account-icon-user-icon-vector-graphics_292645-552.jpg"
+                                src="https://cdn-icons-png.flaticon.com/512/1092/1092943.png?w=826&t=st=1687872990~exp=1687873590~hmac=06575d956f2e98a0d10bcb156494d989947e31c408dce9c45a15fd5bb580821d"
                                 alt=""
                                 className="itemImg"
                             />
@@ -71,18 +73,28 @@ const SingleBancos = () => {
                                     {userData.nombre}
                                 </h1>
                                 <div className="detailItem">
-                                    <span className="itemKey">Ubicacion del Banco de Sangre:</span>
+                                    <span className="itemKey">Ubicación del Banco de Sangre:</span>
                                     <span className="itemValue">{userData.direccion}</span>
                                 </div>
-                                <div className="detailItem">
-                                    <span className="itemKey">Cantidad de pintas disponibles:</span>
-                                    <span className="itemValue">{numRecords}</span>
+                                <div className="detailItem2">
+                                    <span className="itemKey2">Cantidad de pintas disponibles:</span>
+                                    <span className="itemValue2">{numRecords}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <ListPintasBancos/>
+                <div className='bottom'>
+                    <div className="titleContainer" onClick={() => setOpenListado(!openListado)} style={{width: '100%', cursor: 'pointer'}}>
+                        <h2>LISTADO DE PINTAS DISPONIBLES</h2>
+                        <ExpandMoreIcon />
+                    </div>
+                    <Collapse in={openListado} timeout="auto" unmountOnExit>
+                        <div className="datatable">
+                            <ListPintasBancos/>
+                        </div>
+                    </Collapse>
+                </div>
             </div>
         </div>
     );

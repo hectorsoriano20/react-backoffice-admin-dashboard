@@ -13,9 +13,13 @@ const DatatableCitas = () => {
             const result = await axios('https://nodejs-sequelize-restapi-mssql-production.up.railway.app/api/v1/Cita')
             const transformedData = result.data.body.map(persona => ({
                 id: persona.ID_Cita,
+                cedula: persona.Cedula_Cita,
+                nombre: persona.Nombre_Cita,
                 email: persona.Correo,
+                sangrecita: persona.Tipo_Sangre_Cita,
                 fecha: persona.Fecha_Cita ? persona.Fecha_Cita.split("T")[0] : '',
                 hora: persona.Hora_Cita,
+                estado: persona.Estado_Cita,
             }))
             setData(transformedData)
         }
@@ -48,7 +52,7 @@ const DatatableCitas = () => {
     return (
         <div className="datatable">
             <div className="datatableTitle">
-              Lista de Solicitudes de Donación
+              
               <Link to="/citas/new" className="link">
                 Agregar Nueva Cita
               </Link>
