@@ -9,20 +9,30 @@ import Navbar from "../../components/navbar/Navbar"
 import DatatableUsers from "../../components/datatable/Datatable.users"
 import FeaturedActive from '../../components/featured/users.percentage/Featured.active';
 import FeaturedInactive from '../../components/featured/users.percentage/Featured.inactive';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles({
+    redirectIcon: {
+      color: '#a82b1e',
+      textDecoration: 'none',
+      fontSize: '2em',
+    },
+  });
 
 const UserList = () => {
     const [openUsuarios, setOpenUsuarios] = useState(true);
     const [openListado, setOpenListado] = useState(false);
+    const classes = useStyles();
     return (
         <div className="list">
             <Sidebar/>
             <div className="listContainer">
                 <Navbar/>
                 <Link to="/">
-                    <KeyboardBackspaceIcon className="redirectIcon"/>
+                    <KeyboardBackspaceIcon className={classes.redirectIcon}/>
                 </Link>
                 <div className="titleContainer" onClick={() => setOpenUsuarios(!openUsuarios)} style={{width: '100%', cursor: 'pointer'}}>
-                    <h2>ESTATUS DE USUARIOS</h2>
+                    <h2>ESTADO DE USUARIOS</h2>
                     <ExpandMoreIcon />
                 </div>
                 <Collapse in={openUsuarios} timeout="auto" unmountOnExit>

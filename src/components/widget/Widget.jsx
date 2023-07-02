@@ -3,6 +3,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import BloodtypeIcon from '@mui/icons-material/Bloodtype';
 import EventNoteIcon from '@mui/icons-material/EventNote';
+import WaterDropIcon from '@mui/icons-material/WaterDrop';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
@@ -94,21 +95,14 @@ const Widget = ( {type} ) => {
 
     return (
         <div className="widget">
-            <div className="left">
+            <div className="center">
                 <div className="title-counter">
+                    {data.icon}
                     <span className="title">{data.title}</span>
                     <span className="counter">
                         {data.isMoney && "$"}{amount}
                     </span>
                 </div>
-                <span className="link">{data.link}</span>
-            </div>
-            <div className="right">
-                {/* <div className="percentage positive">
-                    <KeyboardArrowUpIcon/>
-                    {diff} %
-                </div> */}
-                {data.icon}
             </div>
         </div>
     )

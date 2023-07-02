@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
+import { makeStyles } from '@mui/styles';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
@@ -32,12 +33,20 @@ import FeaturedBPCaducada from '../../components/featured/pintas.caducadas/CPB.B
 import FeaturedONCaducada from '../../components/featured/pintas.caducadas/CPB.ON.caducada';
 import FeaturedOPCaducada from '../../components/featured/pintas.caducadas/CPB.OP.caducada';
 
+const useStyles = makeStyles({
+    redirectIcon: {
+      color: '#a82b1e',
+      textDecoration: 'none',
+      fontSize: '2em',
+    },
+  });
 
 const PintasList = () => {
     const [openPintas, setOpenPintas] = useState(true);  
     const [openPintasEntregadas, setOpenPintasEntregadas] = useState(false);
     const [openPintasCaducadas, setOpenPintasCaducadas] = useState(false);
-    const [openListado, setOpenListado] = useState(false); 
+    const [openListado, setOpenListado] = useState(false);
+    const classes = useStyles(); 
 
     return (
         <div className="list">
@@ -45,7 +54,7 @@ const PintasList = () => {
             <div className="listContainer">
                 <Navbar/>
                 <Link to="/">
-                    <KeyboardBackspaceIcon className="redirectIcon"/>
+                    <KeyboardBackspaceIcon className={classes.redirectIcon}/>
                 </Link>
                 <div className="titleContainer" onClick={() => setOpenPintas(!openPintas)} style={{width: '100%', cursor: 'pointer'}}>
                     <h2>PINTAS DISPONIBLES</h2>

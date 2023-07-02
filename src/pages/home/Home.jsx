@@ -27,7 +27,7 @@ const Home = () => {
                 </div>
                 <div className="listContainer">
                     <div className="titleContainer" onClick={() => setOpenListado(!openListado)} style={{width: '100%', cursor: 'pointer'}}>
-                        <h2>DONACIONES MAS RECIENTES</h2>
+                        <h2>DONACIONES MÁS RECIENTES</h2>
                         <ExpandMoreIcon />
                     </div>
                     <Collapse in={openListado} timeout="auto" unmountOnExit>
