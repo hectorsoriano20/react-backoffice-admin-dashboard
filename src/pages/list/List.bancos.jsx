@@ -8,6 +8,7 @@ import "./list.scss"
 import Sidebar from "../../components/sidebar/Sidebar"
 import Navbar from "../../components/navbar/Navbar"
 import DatatableBancos from "../../components/datatable/Datatable.bancos"
+import APIMaps from '../../components/maps/APIMaps';
 
 const useStyles = makeStyles({
     redirectIcon: {
@@ -18,7 +19,9 @@ const useStyles = makeStyles({
   });
 
 const BancosList = () => {
-    const [openListado, setOpenListado] = useState(true);
+    const [openListado, setOpenListado] = useState(false);
+    const [openMaps, setOpenMaps] = useState(true);
+
     const classes = useStyles();
     return (
         <div className="list">
@@ -28,6 +31,15 @@ const BancosList = () => {
                 <Link to="/">
                     <KeyboardBackspaceIcon className={classes.redirectIcon}/>
                 </Link>
+                <div className="titleContainer" onClick={() => setOpenMaps(!openMaps)} style={{width: '100%', cursor: 'pointer'}}>
+                    <h2>MAPA BANCOS DE SANGRE</h2>
+                    <ExpandMoreIcon />
+                </div>
+                <Collapse in={openMaps} timeout="auto" unmountOnExit>
+                    <div className="datatable">
+                        <APIMaps/>
+                    </div>
+                </Collapse>
                 <div className="titleContainer" onClick={() => setOpenListado(!openListado)} style={{width: '100%', cursor: 'pointer'}}>
                     <h2>LISTADO DE BANCOS DE SANGRE</h2>
                     <ExpandMoreIcon />
