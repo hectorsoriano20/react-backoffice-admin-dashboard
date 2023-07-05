@@ -17,7 +17,7 @@ const BancosHelp = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
-                <h1>Ver listado de bancos de sangre</h1>
+                <h1>INFORMACIÓN SOBRE LOS BANCOS DE SANGRE</h1>
                 <p>Al ingresar al módulo, presenta un mapa con los <strong>bancos de sangre</strong> que se encuentran registrados en el sistema. Adicionalmente, permite desplegar un listado con dichos bancos de sangre.</p>
 
                 <h2>Agregar Nuevo Banco</h2>
@@ -32,7 +32,7 @@ const BancosHelp = () => {
                 
                 <div className="video-container">
                     <h2>Video informativo</h2>
-                    <YouTube videoId="Sb-lxIMs0Xk" opts={videoOptions} />
+                    <YouTube videoId="GFCGTOClF5k" opts={videoOptions} />
                 </div>
             </div>
         </div>

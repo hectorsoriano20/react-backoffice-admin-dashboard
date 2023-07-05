@@ -17,7 +17,7 @@ const UsersHelp = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
-                <h1>Ver listado de usuarios</h1>
+                <h1>INFORMACIÓN SOBRE LOS USUARIOS</h1>
                 <p>Al ingresar al módulo, presenta el estatus actual de los <strong>usuarios registrados</strong>. Adicionalmente, permite desplegar el listado de <strong>usuarios</strong>.</p>
 
                 <h2>Crear Nuevo Usuario</h2>
@@ -33,7 +33,7 @@ const UsersHelp = () => {
 
                 <div className="video-container">
                     <h2>Video informativo</h2>
-                    <YouTube videoId="KbuTN-Raudk" opts={videoOptions} />
+                    <YouTube videoId="WXjb0kl94T4" opts={videoOptions} />
                 </div>
             </div>
         </div>

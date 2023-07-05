@@ -28,12 +28,6 @@ export const userInputs = [
     name: "Correo_Persona"
   },
   {
-    id: 5,
-    label: "Contraseña",
-    type: "password",
-    name: "Contrasena_Persona"
-  },
-  {
     id: 6,
     label: "Numero de Teléfono",
     type: "number",
@@ -98,12 +92,6 @@ export const userInputsSend = [
     type: "email",
     placeholder: "",
     name: "Correo_Persona"
-  },
-  {
-    id: 5,
-    label: "Contraseña",
-    type: "password",
-    name: "Contrasena_Persona"
   },
   {
     id: 6,
@@ -212,7 +200,24 @@ export const bancosInputs = [
     name: "Ubicacion_BancoSangre"
 
   },
+  {
+    id: 3,
+    label: "Latitud del Banco de Sangre",
+    type: "text",
+    placeholder: "",
+    name: "Latitud_BancoSangre",
+    validate: (value) => !isNaN(value) && Number(value) === parseFloat(value)
+  },
+  {
+    id: 4,
+    label: "Longitud del Banco de Sangre",
+    type: "text",
+    placeholder: "",
+    name: "Longitud_BancoSangre",
+    validate: (value) => !isNaN(value) && Number(value) === parseFloat(value)
+  },
 ]
+
 
 export const citasInputs = [
   {

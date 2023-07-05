@@ -17,7 +17,7 @@ const CompradoresHelp = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
-                <h1>Ver listado de solicitudes de compra</h1>
+                <h1>INFORMACIÓN SOBRE LAS SOLICITUDES DE COMPRA</h1>
                 <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes y cantidades, según el estado, las solicitudes de compra de <strong>pintas de sangre</strong> que se encuentran registrados. Adicionalmente, permite desplegar el listado de <strong>solicitudes de compra</strong>.</p>
 
                 <h2>Agregar Nuevo Comprador</h2>
@@ -32,7 +32,7 @@ const CompradoresHelp = () => {
                 
                 <div className="video-container">
                     <h2>Video informativo</h2>
-                    <YouTube videoId="JJ8WqtasAWw" opts={videoOptions} />
+                    <YouTube videoId="LOZUINLfEGk" opts={videoOptions} />
                 </div>
             </div>
         </div>

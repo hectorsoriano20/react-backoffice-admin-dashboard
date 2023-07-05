@@ -27,6 +27,8 @@ const SingleBancos = () => {
                         id: persona.ID_BancoSangre,
                         nombre: persona.Nombre_BancoSangre,
                         direccion: persona.Ubicacion_BancoSangre,
+                        latitud: persona.Latitud_BancoSangre,
+                        longitud: persona.Longitud_BancoSangre,
                     };
                     setUserData(userData);
 
@@ -75,6 +77,14 @@ const SingleBancos = () => {
                                 <div className="detailItem">
                                     <span className="itemKey">Ubicación del Banco de Sangre:</span>
                                     <span className="itemValue">{userData.direccion}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Latitud del Banco de Sangre:</span>
+                                    <span className="itemValue">{userData.latitud}</span>
+                                </div>
+                                <div className="detailItem">
+                                    <span className="itemKey">Longitud del Banco de Sangre:</span>
+                                    <span className="itemValue">{userData.longitud}</span>
                                 </div>
                                 <div className="detailItem2">
                                     <span className="itemKey2">Cantidad de pintas disponibles:</span>

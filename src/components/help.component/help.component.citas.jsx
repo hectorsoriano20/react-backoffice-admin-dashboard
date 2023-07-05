@@ -17,7 +17,7 @@ const CitasHelp = () => {
         <div className="list">
             <SidebarAyuda/>
             <div className="listContainer help-container">
-                <h1>Ver listado de solicitudes de donación</h1>
+                <h1>INFORMACIÓN SOBRE LAS SOLICITUDES DE DONACIÓN</h1>
                 <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes y cantidades, según el estado, las solicitudes de <strong> donación de pintas de sangre</strong> que se encuentran registrados. Adicionalmente, permite desplegar el listado de <strong>citas</strong>.</p>
 
                 <h2>Agregar Nueva Cita</h2>
@@ -33,7 +33,7 @@ const CitasHelp = () => {
                 
                 <div className="video-container">
                     <h2>Video informativo</h2>
-                    <YouTube videoId="EqyqG94lsOE" opts={videoOptions} />
+                    <YouTube videoId="Xr2OmX-HQsc" opts={videoOptions} />
                 </div>
             </div>
         </div>
