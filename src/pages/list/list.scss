@@ -4,7 +4,8 @@
 
   .listContainer{
       flex: 6;
-      overflow: hidden;
+      // overflow: hidden;
+      width: 100%;
 
       .redirectIcon {
         color: #a82b1e;
@@ -34,22 +35,13 @@
         box-sizing: border-box; // Added box-sizing property
       }
 
-      .pintas1{
-        display: flex;
-        padding: 20px;
-        gap: 20px;
-        height: 220px;
-        width: 100%;   // Changed from 90% to 100%
-        box-sizing: border-box; // Added box-sizing property
+      .pintas1 > div, .pintas2 > div {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: calc(25% - 40px);
+        max-width: calc(25% - 40px);
       }
       
-      .pintas2{
-        display: flex;
-        padding: 20px;
-        gap: 20px;
-        height: 220px;
-        width: 100%;   // Changed from 90% to 100%
-        box-sizing: border-box; // Added box-sizing property
-      }
+      
   }
 }
