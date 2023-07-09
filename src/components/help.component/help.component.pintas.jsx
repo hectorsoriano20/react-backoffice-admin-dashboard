@@ -18,7 +18,7 @@ const PintasHelp = () => {
             <SidebarAyuda/>
             <div className="listContainer help-container">
                 <h1>INFORMACIÓN SOBRE LAS PINTAS</h1>
-                <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes y cantidades, según el tipo de pinta, las <strong>pintas de sangre</strong> disponibles en el sistema. Adicionalmente, permite desplegar la misma información sobre las pintas <strong>entregadas</strong> y <strong>caducadas</strong>. Finalmente, permite desplegar el listado actual de <strong>pintas</strong> registradas mediante donaciones en el sistema.</p>
+                <p>Al ingresar al módulo, presenta varios gráficos indicando con porcentajes y cantidades, según el tipo de pinta, las <strong>pintas de sangre</strong> registradas en el sistema con sus diferentes estados. Adicionalmente, permite desplegar la información, de manera individual, sobre las pintas <strong>disponibles</strong>, <strong>entregadas</strong> y <strong>caducadas</strong>. Finalmente, permite desplegar el listado actual de <strong>pintas</strong>.</p>
 
                 <h2>Agregar Nueva Pinta</h2>
                 <p>Al desplegar el listado, permite seleccionar la opción <strong>“Agregar Nueva Pinta”</strong> donde muestra una pantalla con el formulario de registro, donde se toman los datos de la <strong>donación</strong>.</p>

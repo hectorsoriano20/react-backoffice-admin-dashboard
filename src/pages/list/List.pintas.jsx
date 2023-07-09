@@ -32,6 +32,14 @@ import FeaturedBNCaducada from '../../components/featured/pintas.caducadas/CPB.B
 import FeaturedBPCaducada from '../../components/featured/pintas.caducadas/CPB.BP.caducada';
 import FeaturedONCaducada from '../../components/featured/pintas.caducadas/CPB.ON.caducada';
 import FeaturedOPCaducada from '../../components/featured/pintas.caducadas/CPB.OP.caducada';
+import FeaturedOPTotal from '../../components/featured/pintas.total/Graph.OP';
+import FeaturedONTotal from '../../components/featured/pintas.total/Graph.ON';
+import FeaturedAPTotal from '../../components/featured/pintas.total/Graph.AP';
+import FeaturedANTotal from '../../components/featured/pintas.total/Graph.AN';
+import FeaturedBPTotal from '../../components/featured/pintas.total/Graph.BP';
+import FeaturedBNTotal from '../../components/featured/pintas.total/Graph.BN';
+import FeaturedABPTotal from '../../components/featured/pintas.total/Graph.ABP';
+import FeaturedABNTotal from '../../components/featured/pintas.total/Graph.ABN';
 
 const useStyles = makeStyles({
     redirectIcon: {
@@ -42,9 +50,10 @@ const useStyles = makeStyles({
   });
 
 const PintasList = () => {
-    const [openPintas, setOpenPintas] = useState(true);  
+    const [openPintas, setOpenPintas] = useState(false);  
     const [openPintasEntregadas, setOpenPintasEntregadas] = useState(false);
     const [openPintasCaducadas, setOpenPintasCaducadas] = useState(false);
+    const [openPintasTotales, setOpenPintasTotales] = useState(true);
     const [openListado, setOpenListado] = useState(false);
     const classes = useStyles(); 
 
@@ -56,6 +65,24 @@ const PintasList = () => {
                 <Link to="/">
                     <KeyboardBackspaceIcon className={classes.redirectIcon}/>
                 </Link>
+                <div className="titleContainer" onClick={() => setOpenPintasTotales(!openPintasTotales)} style={{width: '100%', cursor: 'pointer'}}>
+                    <h2>INFORMACIÓN GENERAL</h2>
+                    <ExpandMoreIcon />
+                </div>
+                <Collapse in={openPintasTotales} timeout="auto" unmountOnExit>
+                    <div className="pintas1">
+                        <FeaturedABPTotal/>
+                        <FeaturedABNTotal/>
+                        <FeaturedAPTotal/>
+                        <FeaturedANTotal/>
+                    </div>
+                    <div className="pintas2">
+                        <FeaturedBPTotal/>
+                        <FeaturedBNTotal/>
+                        <FeaturedOPTotal/>
+                        <FeaturedONTotal/>
+                    </div>
+                </Collapse>
                 <div className="titleContainer" onClick={() => setOpenPintas(!openPintas)} style={{width: '100%', cursor: 'pointer'}}>
                     <h2>PINTAS DISPONIBLES</h2>
                     <ExpandMoreIcon />
